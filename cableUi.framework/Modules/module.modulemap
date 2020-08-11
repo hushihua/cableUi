@@ -1,0 +1,11 @@
+framework module cableUi {
+  umbrella header "cableUi.h"
+
+  export *
+  module * { export * }
+}
+
+module cableUi.Swift {
+    header "cableUi-Swift.h"
+    requires objc
+}

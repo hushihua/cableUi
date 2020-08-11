@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AppKey</key>
+	<string>4d3967b5d1c4b7a3cad814af</string>
+    
+<!--	<key>DefaultImage</key>-->
+<!--	<string>default_icon</string>-->
+    
+	<key>LeftContentBg</key>
+	<string>qipao_Left</string>
+    
+	<key>RightContentBg</key>
+	<string>qipao_Right Light</string>
+    
+<!--	<key>ImageMessageBg</key>-->
+<!--	<string>right_bg</string>-->
+    
+	<key>HideIMHeaderView</key>
+	<true/>
+</dict>
+</plist>

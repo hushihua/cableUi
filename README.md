@@ -1,4 +1,4 @@
-![iPush](https://github.com/hushihua/iMui/blob/master/cableUi.png)
+![iPush](https://github.com/hushihua/cableUi/blob/master/cableUi.png)
 
 [![CI Status](https://img.shields.io/travis/adam/cableUi.svg?style=flat)](https://travis-ci.org/adam/cableUii)
 [![Version](https://img.shields.io/cocoapods/v/cableUi.svg?style=flat)](https://cocoapods.org/pods/cableUi)

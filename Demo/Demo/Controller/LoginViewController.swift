@@ -26,8 +26,8 @@ class LoginViewController: CUIBaseViewController {
         self.showLoading()
         IMDemoService.getInstance().login(userName: sUserName, password: sPassword) { (response:PHResponse<UserInfo>) in
             if response.isSuccess == true, let info:UserInfo = response.data{
-                UserDefaults.standard.set(sUserName, forKey: "Test_User_Name2")
-                UserDefaults.standard.set(sPassword, forKey: "Test_Password2")
+                UserDefaults.standard.set(sUserName, forKey: "UserName")
+                UserDefaults.standard.set(sPassword, forKey: "Password")
                 UserDefaults.standard.synchronize()
                 guard let uid:String = info.imUid, let password:String = info.imPassword else{
                     self.dismissLoading()

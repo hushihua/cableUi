@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vaS-qi-GxS">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +26,7 @@
         <!--Auto Login View Controller-->
         <scene sceneID="jpj-w0-3Qr">
             <objects>
-                <viewController id="jNl-QC-p15" customClass="AutoLoginViewController" customModule="Main" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jNl-QC-p15" customClass="AutoLoginViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fTa-FB-P84">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,7 +54,7 @@
         <!--Login View Controller-->
         <scene sceneID="NR1-lx-k8H">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="C7g-7j-a0S" customClass="LoginViewController" customModule="Main" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="C7g-7j-a0S" customClass="LoginViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qlv-YH-gy7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,7 +71,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXe-Qg-BPk">
                                         <rect key="frame" x="0.0" y="0.0" width="308" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Btr-3z-YZW" customClass="SPTextFiled" customModule="Main" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Btr-3z-YZW" customClass="SPTextFiled" customModule="Demo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="308" height="50"/>
                                                 <color key="tintColor" red="0.12549019610000001" green="0.52549019610000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -105,7 +106,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ils-mY-LGb">
                                         <rect key="frame" x="0.0" y="50" width="308" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SAF-zA-Ctm" customClass="SPTextFiled" customModule="Main" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SAF-zA-Ctm" customClass="SPTextFiled" customModule="Demo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="308" height="50"/>
                                                 <color key="tintColor" red="0.12549019610000001" green="0.52549019610000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="deviceRGB"/>
@@ -139,7 +140,7 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9A-7D-t4B" customClass="BMCornerButton" customModule="Main" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9A-7D-t4B" customClass="BMCornerButton" customModule="Demo" customModuleProvider="target">
                                 <rect key="frame" x="53" y="468" width="308" height="56"/>
                                 <color key="backgroundColor" red="1" green="0.74117647060000003" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
@@ -206,7 +207,7 @@
         <!--Regedit View Controller-->
         <scene sceneID="nBU-uU-5lm">
             <objects>
-                <viewController id="nwF-uM-eph" customClass="RegeditViewController" customModule="Main" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nwF-uM-eph" customClass="RegeditViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TJl-IJ-EBU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,7 +224,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h71-gn-DuN">
                                         <rect key="frame" x="0.0" y="0.0" width="308" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xpd-tf-Lgv" customClass="SPTextFiled" customModule="Main" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xpd-tf-Lgv" customClass="SPTextFiled" customModule="Demo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="308" height="50"/>
                                                 <color key="tintColor" red="0.12549019610000001" green="0.52549019610000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -258,7 +259,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXD-Bd-LZd">
                                         <rect key="frame" x="0.0" y="50" width="308" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cwE-DE-tzd" customClass="SPTextFiled" customModule="Main" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cwE-DE-tzd" customClass="SPTextFiled" customModule="Demo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="308" height="50"/>
                                                 <color key="tintColor" red="0.12549019610000001" green="0.52549019610000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="deviceRGB"/>
@@ -293,7 +294,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJ1-4s-aKW">
                                         <rect key="frame" x="0.0" y="100" width="308" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nick Name" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FU5-Nv-nNr" customClass="SPTextFiled" customModule="Main" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nick Name" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FU5-Nv-nNr" customClass="SPTextFiled" customModule="Demo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="308" height="50"/>
                                                 <color key="tintColor" red="0.12549019610000001" green="0.52549019610000003" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="deviceRGB"/>
@@ -330,7 +331,7 @@
                                     <constraint firstAttribute="trailing" secondItem="vXD-Bd-LZd" secondAttribute="trailing" id="gtt-TU-mot"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv6-C6-oAs" customClass="BMCornerButton" customModule="Main" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv6-C6-oAs" customClass="BMCornerButton" customModule="Demo" customModuleProvider="target">
                                 <rect key="frame" x="53" y="483" width="308" height="56"/>
                                 <color key="backgroundColor" red="1" green="0.74117647060000003" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
@@ -390,7 +391,7 @@
         <!--Session-->
         <scene sceneID="iwo-Ms-ifI">
             <objects>
-                <viewController id="qol-8f-jtA" customClass="SessionViewController" customModule="Main" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qol-8f-jtA" customClass="SessionViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mVi-aa-1rg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

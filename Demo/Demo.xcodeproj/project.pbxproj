@@ -10,7 +10,6 @@
 		2F2A00E92B262B0D7AF53C60 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0995B35AD358F59DE16AF3D5 /* Pods_Demo.framework */; };
 		667362E424E1606500A3239C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667362E324E1606500A3239C /* AppDelegate.swift */; };
 		667362E624E1606500A3239C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667362E524E1606500A3239C /* SceneDelegate.swift */; };
-		667362E824E1606500A3239C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667362E724E1606500A3239C /* ViewController.swift */; };
 		667362EB24E1606500A3239C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 667362E924E1606500A3239C /* Main.storyboard */; };
 		667362ED24E1606600A3239C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 667362EC24E1606600A3239C /* Assets.xcassets */; };
 		667362F024E1606600A3239C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 667362EE24E1606600A3239C /* LaunchScreen.storyboard */; };
@@ -31,11 +30,11 @@
 		667362E024E1606500A3239C /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		667362E324E1606500A3239C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		667362E524E1606500A3239C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		667362E724E1606500A3239C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		667362EA24E1606500A3239C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		667362EC24E1606600A3239C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		667362EF24E1606600A3239C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		667362F124E1606600A3239C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		667752D624E4FFF2005449B8 /* Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Demo.entitlements; sourceTree = "<group>"; };
 		66D4626E24E28504001D1C0C /* AutoLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLoginViewController.swift; sourceTree = "<group>"; };
 		66D4626F24E28504001D1C0C /* RegeditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegeditViewController.swift; sourceTree = "<group>"; };
 		66D4627124E28504001D1C0C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -79,13 +78,13 @@
 		667362E224E1606500A3239C /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				667752D624E4FFF2005449B8 /* Demo.entitlements */,
 				66D4627B24E285E7001D1C0C /* Model */,
 				66D4627824E285C6001D1C0C /* Service */,
 				66D4626D24E284D4001D1C0C /* Controller */,
 				667362E324E1606500A3239C /* AppDelegate.swift */,
 				66D4627E24E28627001D1C0C /* Constant.swift */,
 				667362E524E1606500A3239C /* SceneDelegate.swift */,
-				667362E724E1606500A3239C /* ViewController.swift */,
 				667362E924E1606500A3239C /* Main.storyboard */,
 				667362EC24E1606600A3239C /* Assets.xcassets */,
 				667362EE24E1606600A3239C /* LaunchScreen.storyboard */,
@@ -151,6 +150,7 @@
 				667362DD24E1606500A3239C /* Frameworks */,
 				667362DE24E1606500A3239C /* Resources */,
 				CDC891B622074EBA7FE74FA8 /* [CP] Embed Pods Frameworks */,
+				272779B8A49A9FA3776D9E7E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,6 +209,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		272779B8A49A9FA3776D9E7E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CDC891B622074EBA7FE74FA8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,7 +275,6 @@
 				66D4627624E28504001D1C0C /* LoginViewController.swift in Sources */,
 				66D4627724E28504001D1C0C /* SessionViewController.swift in Sources */,
 				66D4627A24E285DD001D1C0C /* IMDemoService.swift in Sources */,
-				667362E824E1606500A3239C /* ViewController.swift in Sources */,
 				66D4627324E28504001D1C0C /* AutoLoginViewController.swift in Sources */,
 				667362E424E1606500A3239C /* AppDelegate.swift in Sources */,
 				66D4627424E28504001D1C0C /* RegeditViewController.swift in Sources */,
@@ -409,9 +425,12 @@
 			baseConfigurationReference = 65AF91DDE6FC4B9B55741A0D /* Pods-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Demo/Demo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7693D9DR3;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,9 +447,12 @@
 			baseConfigurationReference = 34A93934BE4AAEDB7BC55CAE /* Pods-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Demo/Demo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S7693D9DR3;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -33,8 +33,8 @@ class SessionViewController: CUIBaseViewController {
             IMuiApi.getInstance().logout { [weak self] (response:PHResponse<Bool>) in
                 if response.isSuccess == true{
                     DispatchQueue.main.async{
-                        UserDefaults.standard.removeObject(forKey: "Test_User_Name2")
-                        UserDefaults.standard.removeObject(forKey: "Test_Password2")
+                        UserDefaults.standard.removeObject(forKey: "UserName")
+                        UserDefaults.standard.removeObject(forKey: "Password")
                         UserDefaults.standard.synchronize()
                         if let controller:UIViewController = self?.storyboard?.instantiateViewController(withIdentifier: "LoginViewController"){
                             self?.navigationController?.viewControllers = [controller]

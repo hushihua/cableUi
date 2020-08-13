@@ -56,9 +56,11 @@ iPush支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 Coc
 
 ## 三：代码流程接入
 
-### 1.在 AppDelegate.m 文件中引入 iPush，并初始化（以Swift项目为例）。
+### 1.在 AppDelegate.m 文件中初始化（以Swift项目为例）。
 ```
 import iPush
+import iChat
+import cableUi
 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     //选择运行环境 
@@ -75,6 +77,39 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     return true
 }
 ```
+
+项目中新建 ``` sdk.plist``` 文件，并在文件中进行以下设置
+```
+<plist version="1.0">
+<dict>
+    <!-- 申请时生成的appKey -->
+    <key>AppKey</key>
+    <string>4d3967b5d1c4b7a3cad814af</string>
+    
+    <!-- im中默认图名字 -->
+    <key>DefaultImage</key>
+    <string>default_icon</string>
+    
+    <!-- im中左边的消息背景图 -->
+    <key>LeftContentBg</key>
+    <string>qipao_Left</string>
+    
+    <!-- im中右边消息的背景图 -->
+    <key>RightContentBg</key>
+    <string>qipao_Right Light</string>
+    
+    <!-- im中图片类型消息的默认图 -->
+    <key>ImageMessageBg</key>
+    <string>right_bg</string>
+    
+    <!-- im中是否显示聊天室中的title view -->
+    <key>HideIMHeaderView</key>
+    <true/>
+</dict>
+</plist>
+
+```
+
 ### 2. 实现推送回调方法
 当收到apns推送时，将回调```UNUserNotificationCenterDelegate```代理方法参考如下(原生apns消息回调代理方法)。如要支持ios 10以下的系统，请自行补充版本兼容代码。
 ```

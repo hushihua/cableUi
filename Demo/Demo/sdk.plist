@@ -2,6 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <!-- 申请时生成的appKey -->
 	<key>AppKey</key>
 	<string>4d3967b5d1c4b7a3cad814af</string>
     

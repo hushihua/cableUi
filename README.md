@@ -37,6 +37,7 @@ iPush支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 Coc
 #### 2. Enable Bitcode 设置成 NO
 
 #### 3. 添加以下权限描述
+```
 <key>NSCameraUsageDescription</key>
 <string>此App会在用户扫描二维码信息时访问您的相机, 使用过程为用户保密</string>
 <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -51,7 +52,7 @@ iPush支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 Coc
 <string>此App会为用户保存图片到您的相册,此过程不会有数据泄露, 使用过程为用户保密</string>
 <key>NSPhotoLibraryUsageDescription</key>
 <string>此App会在用户使用照片时访问您的相册,然后打包提交, 使用过程为用户保密</string>
-
+```
 
 ## 三：代码流程接入
 

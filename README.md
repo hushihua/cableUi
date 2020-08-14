@@ -145,3 +145,8 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 打开项目，打开 AppDelegate文件，在 initSDK 方法中替换成你申请成功的appkey
 
 注意： 测试环境下的appkey，与正式环境下的appkey不相同，请分开申请。
+
+
+------
+
+

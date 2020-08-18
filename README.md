@@ -105,6 +105,10 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     <!-- im中是否显示聊天室中的title view -->
     <key>HideIMHeaderView</key>
     <true/>
+    
+    <!-- 是否显示搜索栏 -->
+    <key>SearchEnable</key>
+    <false/>
 </dict>
 </plist>
 

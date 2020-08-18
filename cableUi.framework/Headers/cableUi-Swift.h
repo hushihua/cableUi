@@ -418,8 +418,6 @@ SWIFT_CLASS("_TtC7cableUi18CUIAvatarImageView")
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-
 @class UITapGestureRecognizer;
 
 @interface CUIBaseViewController (SWIFT_EXTENSION(cableUi))
@@ -427,6 +425,8 @@ SWIFT_CLASS("_TtC7cableUi18CUIAvatarImageView")
 - (void)dismissInputView:(UITapGestureRecognizer * _Nonnull)tap;
 - (void)refreshByLanguageChange;
 @end
+
+
 
 
 SWIFT_CLASS("_TtC7cableUi26CUIBlackListViewController")
@@ -1050,6 +1050,8 @@ SWIFT_CLASS("_TtC7cableUi7IMuiApi")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+
 @class UNNotification;
 
 @interface IMuiApi (SWIFT_EXTENSION(cableUi)) <PushNotificationDelegate>
@@ -1161,19 +1163,19 @@ SWIFT_CLASS("_TtC7cableUi14LPOpenFileTool")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class UIDocumentPickerViewController;
-
-@interface LPOpenFileTool (SWIFT_EXTENSION(cableUi)) <UIDocumentPickerDelegate>
-- (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentAtURL:(NSURL * _Nonnull)url;
-- (void)documentPickerWasCancelled:(UIDocumentPickerViewController * _Nonnull)controller;
-@end
-
 @class QLPreviewController;
 @protocol QLPreviewItem;
 
 @interface LPOpenFileTool (SWIFT_EXTENSION(cableUi)) <QLPreviewControllerDataSource>
 - (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
 - (id <QLPreviewItem> _Nonnull)previewController:(QLPreviewController * _Nonnull)controller previewItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UIDocumentPickerViewController;
+
+@interface LPOpenFileTool (SWIFT_EXTENSION(cableUi)) <UIDocumentPickerDelegate>
+- (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentAtURL:(NSURL * _Nonnull)url;
+- (void)documentPickerWasCancelled:(UIDocumentPickerViewController * _Nonnull)controller;
 @end
 
 
@@ -2151,8 +2153,6 @@ SWIFT_CLASS("_TtC7cableUi18CUIAvatarImageView")
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-
 @class UITapGestureRecognizer;
 
 @interface CUIBaseViewController (SWIFT_EXTENSION(cableUi))
@@ -2160,6 +2160,8 @@ SWIFT_CLASS("_TtC7cableUi18CUIAvatarImageView")
 - (void)dismissInputView:(UITapGestureRecognizer * _Nonnull)tap;
 - (void)refreshByLanguageChange;
 @end
+
+
 
 
 SWIFT_CLASS("_TtC7cableUi26CUIBlackListViewController")
@@ -2783,6 +2785,8 @@ SWIFT_CLASS("_TtC7cableUi7IMuiApi")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+
 @class UNNotification;
 
 @interface IMuiApi (SWIFT_EXTENSION(cableUi)) <PushNotificationDelegate>
@@ -2894,19 +2898,19 @@ SWIFT_CLASS("_TtC7cableUi14LPOpenFileTool")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class UIDocumentPickerViewController;
-
-@interface LPOpenFileTool (SWIFT_EXTENSION(cableUi)) <UIDocumentPickerDelegate>
-- (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentAtURL:(NSURL * _Nonnull)url;
-- (void)documentPickerWasCancelled:(UIDocumentPickerViewController * _Nonnull)controller;
-@end
-
 @class QLPreviewController;
 @protocol QLPreviewItem;
 
 @interface LPOpenFileTool (SWIFT_EXTENSION(cableUi)) <QLPreviewControllerDataSource>
 - (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
 - (id <QLPreviewItem> _Nonnull)previewController:(QLPreviewController * _Nonnull)controller previewItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UIDocumentPickerViewController;
+
+@interface LPOpenFileTool (SWIFT_EXTENSION(cableUi)) <UIDocumentPickerDelegate>
+- (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentAtURL:(NSURL * _Nonnull)url;
+- (void)documentPickerWasCancelled:(UIDocumentPickerViewController * _Nonnull)controller;
 @end
 
 

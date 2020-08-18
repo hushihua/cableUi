@@ -6,11 +6,11 @@
 	<dict>
 		<key>Frameworks/iPush.framework/GlobalErrorWindow.nib/objects-11.0+.nib</key>
 		<data>
-		67jICu8yl8YlTEEE5buoJsu2yKM=
+		QTAbZlvtuvqNRAwK8H6B7Kg/sSw=
 		</data>
 		<key>Frameworks/iPush.framework/GlobalErrorWindow.nib/runtime.nib</key>
 		<data>
-		Qi6VTnr+VUV8zCESsLWZubwfjn8=
+		2IzmYATd03jxi8X5L6jxJVgnb+g=
 		</data>
 		<key>Frameworks/iPush.framework/Info.plist</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>Frameworks/iPush.framework/_CodeSignature/CodeResources</key>
 		<data>
-		BNJhOXqvC1Du4V7Qrdyp76SATWw=
+		bX7ugB8sGXo9VJ7H3saJMcDnQjA=
 		</data>
 		<key>Frameworks/iPush.framework/iPush</key>
 		<data>
-		sdjmkjRf8+IJFLD5AnlDgyCOgG8=
+		hHhcW0OXgLGo3NWVZFcetxa2i0c=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -35,22 +35,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			67jICu8yl8YlTEEE5buoJsu2yKM=
+			QTAbZlvtuvqNRAwK8H6B7Kg/sSw=
 			</data>
 			<key>hash2</key>
 			<data>
-			GTNWbCFnC7mvXbe77XVESZYBN9+pe+4wD4kpT+syXn4=
+			Sfsklrl+VVNoYXlLuUppsEJKEmmkBPC8fIW7x6dafDw=
 			</data>
 		</dict>
 		<key>Frameworks/iPush.framework/GlobalErrorWindow.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Qi6VTnr+VUV8zCESsLWZubwfjn8=
+			2IzmYATd03jxi8X5L6jxJVgnb+g=
 			</data>
 			<key>hash2</key>
 			<data>
-			WPKYePNY4OxPv1rU/WNmKXDWr8JOMaxDJDr4mnO8GdY=
+			XenMSn46uMhmPSacRQXLG1CMyCpe8NqnE7KuTckYzWc=
 			</data>
 		</dict>
 		<key>Frameworks/iPush.framework/Info.plist</key>
@@ -68,22 +68,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BNJhOXqvC1Du4V7Qrdyp76SATWw=
+			bX7ugB8sGXo9VJ7H3saJMcDnQjA=
 			</data>
 			<key>hash2</key>
 			<data>
-			gfvYWxOoJ3p6cAW96aO7GWEw7BvHoh0UO02kxMPD9Yc=
+			PK6aPTcDVcOvlCUxzAvvRguQXDmj0ji1W8KuMbV4wS0=
 			</data>
 		</dict>
 		<key>Frameworks/iPush.framework/iPush</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sdjmkjRf8+IJFLD5AnlDgyCOgG8=
+			hHhcW0OXgLGo3NWVZFcetxa2i0c=
 			</data>
 			<key>hash2</key>
 			<data>
-			NvpqEMByn0pcwBSA7mc2hXicC+TC1IMOSQkFiyK0r9o=
+			IxaJ1TK7mRYNe5SzRN1COYiojpbjE0nZhVpIEyBaEQM=
 			</data>
 		</dict>
 	</dict>

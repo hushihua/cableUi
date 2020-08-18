@@ -109,6 +109,10 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     <!-- 是否显示搜索栏 -->
     <key>SearchEnable</key>
     <false/>
+    
+    <!-- 1:显示emoji, 2:显示sticker -->
+    <key>StickerType</key>
+    <integer>2</integer>
 </dict>
 </plist>
 

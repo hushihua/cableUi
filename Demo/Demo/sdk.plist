@@ -22,5 +22,7 @@
 	<true/>
     <key>SearchEnable</key>
     <false/>
+    <key>StickerType</key>
+    <integer>2</integer>
 </dict>
 </plist>

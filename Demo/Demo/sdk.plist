@@ -20,5 +20,7 @@
     
 	<key>HideIMHeaderView</key>
 	<true/>
+    <key>SearchEnable</key>
+    <false/>
 </dict>
 </plist>

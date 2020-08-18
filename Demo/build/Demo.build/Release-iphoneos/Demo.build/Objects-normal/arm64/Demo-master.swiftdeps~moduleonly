@@ -1,0 +1,13 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "4e365cf4cb435ac237d54f2fe27f042b"
+build_time: [1597306098, 613073000]
+inputs:
+  "/Users/adam/Documents/SDK_Git/cableUi/Demo/Demo/Controller/LoginViewController.swift": [9223372036, 854775807]
+  "/Users/adam/Documents/SDK_Git/cableUi/Demo/Demo/Controller/SessionViewController.swift": [9223372036, 854775807]
+  "/Users/adam/Documents/SDK_Git/cableUi/Demo/Demo/Service/IMDemoService.swift": [9223372036, 854775807]
+  "/Users/adam/Documents/SDK_Git/cableUi/Demo/Demo/Controller/AutoLoginViewController.swift": [9223372036, 854775807]
+  "/Users/adam/Documents/SDK_Git/cableUi/Demo/Demo/AppDelegate.swift": [9223372036, 854775807]
+  "/Users/adam/Documents/SDK_Git/cableUi/Demo/Demo/Controller/RegeditViewController.swift": [9223372036, 854775807]
+  "/Users/adam/Documents/SDK_Git/cableUi/Demo/Demo/Constant.swift": [9223372036, 854775807]
+  "/Users/adam/Documents/SDK_Git/cableUi/Demo/Demo/Model/UserInfo.swift": [9223372036, 854775807]
+  "/Users/adam/Documents/SDK_Git/cableUi/Demo/Demo/SceneDelegate.swift": [9223372036, 854775807]

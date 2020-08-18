@@ -15,6 +15,12 @@ class SessionViewController: CUIBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        IMuiApi.getInstance().setSessionClickEvent { [weak self] (session:CUSession?) in
+            let controller:CUIIMViewController = CUIIMViewController.CreaetViewController()
+            controller.sessionInfo = session
+            self?.present(controller, animated:true, completion:nil)
+//            self?.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     @IBAction func showVideoAlert(){

@@ -479,6 +479,63 @@
             </objects>
             <point key="canvasLocation" x="657" y="1291"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="Ll9-kd-U1i">
+            <objects>
+                <viewController storyboardIdentifier="Chat" id="Dtb-sZ-Qc5" customClass="ChatViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="igQ-4I-hkE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ib-98-bj8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSZ-ya-f5K">
+                                        <rect key="frame" x="187.66666666666666" y="11.666666666666664" width="39" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="vSZ-ya-f5K" firstAttribute="centerX" secondItem="1ib-98-bj8" secondAttribute="centerX" id="TrK-jA-LbR"/>
+                                    <constraint firstAttribute="height" constant="44" id="a1m-3a-pBw"/>
+                                    <constraint firstItem="vSZ-ya-f5K" firstAttribute="centerY" secondItem="1ib-98-bj8" secondAttribute="centerY" id="qx5-9H-Skc"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUx-Mr-TJk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <connections>
+                                    <segue destination="9cC-Bd-672" kind="embed" id="Zzr-Ws-jjj"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OUx-Mr-TJk" firstAttribute="top" secondItem="1ib-98-bj8" secondAttribute="bottom" id="D8s-Ax-Xvp"/>
+                            <constraint firstItem="OUx-Mr-TJk" firstAttribute="bottom" secondItem="hQm-yc-zgE" secondAttribute="bottom" id="bKi-Iz-0Qh"/>
+                            <constraint firstItem="1ib-98-bj8" firstAttribute="top" secondItem="hQm-yc-zgE" secondAttribute="top" id="gBR-zv-5a0"/>
+                            <constraint firstItem="1ib-98-bj8" firstAttribute="trailing" secondItem="hQm-yc-zgE" secondAttribute="trailing" id="nRR-5Z-CJK"/>
+                            <constraint firstItem="OUx-Mr-TJk" firstAttribute="trailing" secondItem="hQm-yc-zgE" secondAttribute="trailing" id="rN7-7b-okQ"/>
+                            <constraint firstItem="1ib-98-bj8" firstAttribute="leading" secondItem="hQm-yc-zgE" secondAttribute="leading" id="sEi-PZ-NiX"/>
+                            <constraint firstItem="OUx-Mr-TJk" firstAttribute="leading" secondItem="hQm-yc-zgE" secondAttribute="leading" id="xvU-lT-sC6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hQm-yc-zgE"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NcX-jy-s8b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1489.8550724637682" y="1558.6956521739132"/>
+        </scene>
+        <!--CUIIM-->
+        <scene sceneID="I5L-I9-CDp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CUIIM" bundleIdentifier="com.awesome.cableUi" id="9cC-Bd-672" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2gK-lv-sFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1491" y="1999"/>
+        </scene>
         <!--Friends-->
         <scene sceneID="y7L-ZZ-Dtn">
             <objects>

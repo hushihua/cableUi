@@ -9,17 +9,17 @@
 <!--	<key>DefaultImage</key>-->
 <!--	<string>default_icon</string>-->
     
-	<key>LeftContentBg</key>
-	<string>qipao_Left</string>
+<!--	<key>LeftContentBg</key>-->
+<!--	<string>qipao_Left</string>-->
     
-	<key>RightContentBg</key>
-	<string>qipao_Right Light</string>
+<!--	<key>RightContentBg</key>-->
+<!--	<string>qipao_Right Light</string>-->
     
 <!--	<key>ImageMessageBg</key>-->
 <!--	<string>right_bg</string>-->
     
-	<key>HideIMHeaderView</key>
-	<true/>
+<!--	<key>HideIMHeaderView</key>-->
+<!--	<true/>-->
     <key>SearchEnable</key>
     <false/>
     <key>StickerType</key>

@@ -197,7 +197,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import MJRefresh;
 @import ObjectiveC;
 @import Photos;
-@import QuickLook;
 @import UIKit;
 @import UserNotifications;
 @import iMApi;
@@ -219,6 +218,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class UITouch;
+@class UIEvent;
 @class NSBundle;
 @class NSCoder;
 
@@ -227,6 +228,7 @@ SWIFT_CLASS("_TtC7cableUi21CUIBaseViewController")
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
+- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -275,71 +277,9 @@ SWIFT_CLASS("_TtC7cableUi23AVGroupSelectController")
 
 
 
-SWIFT_CLASS("_TtC7cableUi8AmrCoder")
-@interface AmrCoder : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UIColor;
-
-SWIFT_CLASS("_TtC7cableUi13AudioLineView")
-@interface AudioLineView : UIView
-@property (nonatomic, strong) IBInspectable UIColor * _Nonnull defaultColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nonnull progressBC;
-@property (nonatomic, strong) IBInspectable UIColor * _Nonnull progressFC;
-@property (nonatomic) IBInspectable CGFloat paddingBotton;
-@property (nonatomic) IBInspectable CGFloat lineWidth;
-@property (nonatomic) IBInspectable CGFloat linePadding;
-@property (nonatomic) IBInspectable CGFloat Max;
-@property (nonatomic) IBInspectable CGFloat Min;
-- (void)drawRect:(CGRect)rect;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-@class UIGestureRecognizer;
-@class UITouch;
-
-@interface AudioLineView (SWIFT_EXTENSION(cableUi)) <UIGestureRecognizerDelegate>
-- (void)awakeFromNib;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldReceiveTouch:(UITouch * _Nonnull)touch SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_PROTOCOL("_TtP7cableUi21AudioLineViewDelegate_")
-@protocol AudioLineViewDelegate <NSObject>
-- (void)onViewBeginScrollingWithProgress:(CGFloat)progress;
-- (void)onViewFinishScrollingWithProgress:(CGFloat)progress;
-- (void)didSelectedValueChangeWithProgress:(CGFloat)progress;
-@end
-
-
 SWIFT_CLASS("_TtC7cableUi17BMActionSheetView")
 @interface BMActionSheetView : UIView
 - (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14SPCornerButton")
-@interface SPCornerButton : UIButton
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14BMCornerButton")
-@interface BMCornerButton : SPCornerButton
-@property (nonatomic, getter=isEnabled) BOOL enabled;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -352,23 +292,6 @@ SWIFT_CLASS("_TtC7cableUi13BMMessageInfo")
 @end
 
 
-
-@class UIEvent;
-
-SWIFT_CLASS("_TtC7cableUi18BaseViewController")
-@interface BaseViewController : UIViewController
-- (void)viewDidLoad;
-- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14BaseWindowView")
-@interface BaseWindowView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_CLASS("_TtC7cableUi16BeePopoverAction")
@@ -389,29 +312,8 @@ SWIFT_CLASS("_TtC7cableUi17CUIAudioSoundView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIImage;
 
-SWIFT_CLASS("_TtC7cableUi17SPCornerImageView")
-@interface SPCornerImageView : UIImageView
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi18CUIAvatarImageView")
-@interface CUIAvatarImageView : SPCornerImageView
-- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
+@class UIGestureRecognizer;
 
 @interface CUIBaseViewController (SWIFT_EXTENSION(cableUi))
 /// *@return true: 触发手势， false:取消手势触发
@@ -757,14 +659,6 @@ SWIFT_CLASS("_TtC7cableUi13CUINotication")
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi18CUIRecordAlertView")
-@interface CUIRecordAlertView : UIView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC7cableUi21LBXScanViewController")
 @interface LBXScanViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 - (void)viewDidLoad;
@@ -870,19 +764,6 @@ SWIFT_CLASS("_TtC7cableUi9CUISketch")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSTextContainer;
-
-SWIFT_CLASS("_TtC7cableUi11CUITextView")
-@interface CUITextView : UITextView <UITextViewDelegate>
-- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
-- (void)textViewDidChange:(UITextView * _Nonnull)textView;
-- (void)copy:(id _Nullable)sender;
-- (void)cut:(id _Nullable)sender;
-- (void)paste:(id _Nullable)sender;
-- (nonnull instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer * _Nullable)textContainer OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=7.0);
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
 
 
 
@@ -908,50 +789,10 @@ SWIFT_CLASS("_TtC7cableUi18CircleProgressView")
 - (void)clickHandler;
 @end
 
-@class UICollectionReusableView;
-@class UICollectionViewLayout;
-
-SWIFT_CLASS("_TtC7cableUi19EmojiCollectionView")
-@interface EmojiCollectionView : UIView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (UICollectionReusableView * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView viewForSupplementaryElementOfKind:(NSString * _Nonnull)kind atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (void)onDeleteEmojiHandler;
-@end
-
-
-
-
-SWIFT_CLASS("_TtC7cableUi19FileDownloadService")
-@interface FileDownloadService : HttpClient
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi15GoogleMapHelper")
-@interface GoogleMapHelper : HttpClient
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
 
 SWIFT_CLASS("_TtC7cableUi17IMColorAvatarTool")
 @interface IMColorAvatarTool : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi15IMEditPhotoView")
-@interface IMEditPhotoView : BaseWindowView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -961,66 +802,9 @@ SWIFT_CLASS("_TtC7cableUi9IMGifInfo")
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi23IMHotPIcWaterFlowLayout")
-@interface IMHotPIcWaterFlowLayout : UICollectionViewFlowLayout
-@property (nonatomic) IBInspectable NSInteger lie;
-@property (nonatomic) IBInspectable CGFloat marginMinH;
-@property (nonatomic) IBInspectable CGFloat marginMinV;
-@property (nonatomic) IBInspectable CGFloat marginLeft;
-@property (nonatomic) IBInspectable CGFloat marginRight;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
-@end
-
-@class UICollectionViewLayoutAttributes;
-
-@interface IMHotPIcWaterFlowLayout (SWIFT_EXTENSION(cableUi))
-- (void)prepareLayout;
-- (NSArray<UICollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) CGSize collectionViewContentSize;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12IMHotPicCell")
-@interface IMHotPicCell : UICollectionViewCell
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC7cableUi12IMHotPicInfo")
 @interface IMHotPicInfo : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12SPCornerView")
-@interface SPCornerView : UIView
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable shadowColor;
-@property (nonatomic) IBInspectable float shadowOpacity;
-@property (nonatomic) IBInspectable CGSize shadowOffset;
-@property (nonatomic) IBInspectable CGFloat shadowRadius;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12IMHotPicView")
-@interface IMHotPicView : SPCornerView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface IMHotPicView (SWIFT_EXTENSION(cableUi)) <UICollectionViewDataSource, UICollectionViewDelegate>
-- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
 
 
@@ -1102,6 +886,7 @@ SWIFT_CLASS("_TtC7cableUi15LPAlertViewTool")
 
 
 
+@class UICollectionViewLayout;
 
 SWIFT_CLASS("_TtC7cableUi16LPCollectionView")
 @interface LPCollectionView : UICollectionView
@@ -1121,61 +906,6 @@ SWIFT_CLASS("_TtC7cableUi18LPExpandAreaButton")
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12LPImageCache")
-@interface LPImageCache : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class PhotoModel;
-
-SWIFT_PROTOCOL("_TtP7cableUi20ZYPhotoAlbumProtocol_")
-@protocol ZYPhotoAlbumProtocol <NSObject>
-@optional
-- (void)photoAlbumWithSelectPhotos:(NSArray<PhotoModel *> * _Nonnull)selectPhotos isSelectOriginImage:(BOOL)isSelectOriginImage SWIFT_AVAILABILITY(ios,introduced=8.0) SWIFT_AVAILABILITY(ios,introduced=8.0);
-- (void)photoAlbumWithClipPhoto:(UIImage * _Nullable)clipPhoto SWIFT_AVAILABILITY(ios,introduced=8.0);
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi17LPImagePickerTool")
-@interface LPImagePickerTool : NSObject <ZYPhotoAlbumProtocol>
-- (void)photoAlbumWithSelectPhotos:(NSArray<PhotoModel *> * _Nonnull)selectPhotos isSelectOriginImage:(BOOL)isSelectOriginImage;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-@class UIImagePickerController;
-@class UINavigationController;
-
-@interface LPImagePickerTool (SWIFT_EXTENSION(cableUi)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-- (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
-- (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> * _Nonnull)info;
-- (void)navigationController:(UINavigationController * _Nonnull)navigationController didShowViewController:(UIViewController * _Nonnull)viewController animated:(BOOL)animated;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14LPOpenFileTool")
-@interface LPOpenFileTool : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-@class QLPreviewController;
-@protocol QLPreviewItem;
-
-@interface LPOpenFileTool (SWIFT_EXTENSION(cableUi)) <QLPreviewControllerDataSource>
-- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
-- (id <QLPreviewItem> _Nonnull)previewController:(QLPreviewController * _Nonnull)controller previewItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@class UIDocumentPickerViewController;
-
-@interface LPOpenFileTool (SWIFT_EXTENSION(cableUi)) <UIDocumentPickerDelegate>
-- (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentAtURL:(NSURL * _Nonnull)url;
-- (void)documentPickerWasCancelled:(UIDocumentPickerViewController * _Nonnull)controller;
 @end
 
 
@@ -1243,226 +973,15 @@ SWIFT_CLASS("_TtC7cableUi17PhoneContactsCell")
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi16PhotoBrowserView")
-@interface PhotoBrowserView : BaseWindowView <UIScrollViewDelegate>
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface PhotoBrowserView (SWIFT_EXTENSION(cableUi)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-
-@interface PhotoBrowserView (SWIFT_EXTENSION(cableUi)) <UICollectionViewDataSource, UICollectionViewDelegate>
-- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didEndDisplayingCell:(UICollectionViewCell * _Nonnull)cell forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
-
-
-@interface PhotoBrowserView (SWIFT_EXTENSION(cableUi))
-- (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)decelerate;
-- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
-- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
-- (void)scrollViewWillBeginDecelerating:(UIScrollView * _Nonnull)scrollView;
-@end
-
-
-
-
-
-
 SWIFT_CLASS("_TtC7cableUi10PhotoModel")
 @interface PhotoModel : NSObject
 - (nonnull instancetype)init;
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi11QDAlertView")
-@interface QDAlertView : BaseWindowView
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi11SPAlertView")
-@interface SPAlertView : BaseWindowView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi13SPCornerLabel")
-@interface SPCornerLabel : UILabel
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12SPBadgeLabel")
-@interface SPBadgeLabel : SPCornerLabel
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi11SPBaseBrush")
-@interface SPBaseBrush : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi7SPBoard")
-@interface SPBoard : UIView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-
-@interface SPBoard (SWIFT_EXTENSION(cableUi))
-- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
-- (void)touchesMoved:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
-- (void)touchesEnded:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi18SPBoardSettingView")
-@interface SPBoardSettingView : SPCornerView
-- (void)awakeFromNib;
-- (void)layoutSubviews;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-
-
-SWIFT_CLASS("_TtC7cableUi15SPCornerControl")
-@interface SPCornerControl : UIControl
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable shadowColor;
-@property (nonatomic) IBInspectable float shadowOpacity;
-@property (nonatomic) IBInspectable CGSize shadowOffset;
-@property (nonatomic) IBInspectable CGFloat shadowRadius;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-
-
 SWIFT_CLASS("_TtC7cableUi18SPExpandAreaButton")
 @interface SPExpandAreaButton : UIButton
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14SPGradientView")
-@interface SPGradientView : UIView
-- (void)drawRect:(CGRect)rect;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable startColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable endColor;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi15SPImageEditUtil")
-@interface SPImageEditUtil : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi13SPPencilBrush")
-@interface SPPencilBrush : SPBaseBrush
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi8SPPlayer")
-@interface SPPlayer : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-
-@interface SPPlayer (SWIFT_EXTENSION(cableUi))
-- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi13SPProgressHud")
-@interface SPProgressHud : BaseWindowView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12SPTabBarItem")
-@interface SPTabBarItem : UITabBarItem
-@property (nonatomic, copy) IBInspectable NSString * _Nonnull normalImage;
-@property (nonatomic, copy) IBInspectable NSString * _Nonnull selectImage;
-@property (nonatomic, strong) IBInspectable UIColor * _Nonnull normalColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nonnull selectedColor;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi11SPTextFiled")
-@interface SPTextFiled : UITextField
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable placeHolderColor;
-@property (nonatomic) IBInspectable NSInteger placeHolderSize;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi10SPTextView")
-@interface SPTextView : UITextView
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-@property (nonatomic) IBInspectable NSInteger alignment;
-@property (nonatomic, copy) IBInspectable NSString * _Nullable placeHolder;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable placeHolderColor;
-- (nonnull instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer * _Nullable)textContainer OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=7.0);
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi18SPTitleSectionView")
-@interface SPTitleSectionView : UIScrollView
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable selectedColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable normalColor;
-@property (nonatomic) IBInspectable CGFloat paddingToBotton;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable lineColor;
-@property (nonatomic) IBInspectable BOOL centerAlign;
-- (void)didMoveToSuperview;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1475,12 +994,6 @@ SWIFT_PROTOCOL("_TtP7cableUi26SPTitleSectionViewDelegate_")
 - (void)didSelectedSectionAtIndexWithIndex:(NSInteger)index;
 @optional
 - (NSInteger)fristShowIndex SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi11SPVideoInfo")
-@interface SPVideoInfo : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1497,13 +1010,6 @@ SWIFT_CLASS("_TtC7cableUi23SeeionListTableViewCell")
 
 @interface SeeionListTableViewCell (SWIFT_EXTENSION(cableUi))
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi17StickerHeaderView")
-@interface StickerHeaderView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1571,26 +1077,12 @@ SWIFT_CLASS("_TtC7cableUi18StickersStaticCell")
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi12SubImageView")
-@interface SubImageView : UIView <UIScrollViewDelegate>
-- (void)awakeFromNib;
-- (UIView * _Nullable)viewForZoomingInScrollView:(UIScrollView * _Nonnull)scrollView SWIFT_WARN_UNUSED_RESULT;
-- (void)scrollViewDidZoom:(UIScrollView * _Nonnull)scrollView;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC7cableUi17SystemOutsideUtil")
 @interface SystemOutsideUtil : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi13TimestampUtil")
-@interface TimestampUtil : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 @interface UIButton (SWIFT_EXTENSION(cableUi))
@@ -1620,30 +1112,6 @@ SWIFT_CLASS("_TtC7cableUi13TimestampUtil")
 
 
 
-
-
-
-
-
-
-SWIFT_CLASS("_TtC7cableUi11UILabelUtil")
-@interface UILabelUtil : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi9UIManager")
-@interface UIManager : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14UINotNullLabel")
-@interface UINotNullLabel : UILabel
-@property (nonatomic, copy) NSString * _Nullable text;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 
@@ -1701,6 +1169,13 @@ SWIFT_CLASS("_TtC7cableUi21ZYCachingImageManager")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_PROTOCOL("_TtP7cableUi20ZYPhotoAlbumProtocol_")
+@protocol ZYPhotoAlbumProtocol <NSObject>
+@optional
+- (void)photoAlbumWithSelectPhotos:(NSArray<PhotoModel *> * _Nonnull)selectPhotos isSelectOriginImage:(BOOL)isSelectOriginImage SWIFT_AVAILABILITY(ios,introduced=8.0) SWIFT_AVAILABILITY(ios,introduced=8.0);
+- (void)photoAlbumWithClipPhoto:(UIImage * _Nullable)clipPhoto SWIFT_AVAILABILITY(ios,introduced=8.0);
+@end
 
 
 SWIFT_CLASS("_TtC7cableUi31ZYPhotoNavigationViewController")
@@ -1932,7 +1407,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import MJRefresh;
 @import ObjectiveC;
 @import Photos;
-@import QuickLook;
 @import UIKit;
 @import UserNotifications;
 @import iMApi;
@@ -1954,6 +1428,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class UITouch;
+@class UIEvent;
 @class NSBundle;
 @class NSCoder;
 
@@ -1962,6 +1438,7 @@ SWIFT_CLASS("_TtC7cableUi21CUIBaseViewController")
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
+- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -2010,71 +1487,9 @@ SWIFT_CLASS("_TtC7cableUi23AVGroupSelectController")
 
 
 
-SWIFT_CLASS("_TtC7cableUi8AmrCoder")
-@interface AmrCoder : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UIColor;
-
-SWIFT_CLASS("_TtC7cableUi13AudioLineView")
-@interface AudioLineView : UIView
-@property (nonatomic, strong) IBInspectable UIColor * _Nonnull defaultColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nonnull progressBC;
-@property (nonatomic, strong) IBInspectable UIColor * _Nonnull progressFC;
-@property (nonatomic) IBInspectable CGFloat paddingBotton;
-@property (nonatomic) IBInspectable CGFloat lineWidth;
-@property (nonatomic) IBInspectable CGFloat linePadding;
-@property (nonatomic) IBInspectable CGFloat Max;
-@property (nonatomic) IBInspectable CGFloat Min;
-- (void)drawRect:(CGRect)rect;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-@class UIGestureRecognizer;
-@class UITouch;
-
-@interface AudioLineView (SWIFT_EXTENSION(cableUi)) <UIGestureRecognizerDelegate>
-- (void)awakeFromNib;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldReceiveTouch:(UITouch * _Nonnull)touch SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_PROTOCOL("_TtP7cableUi21AudioLineViewDelegate_")
-@protocol AudioLineViewDelegate <NSObject>
-- (void)onViewBeginScrollingWithProgress:(CGFloat)progress;
-- (void)onViewFinishScrollingWithProgress:(CGFloat)progress;
-- (void)didSelectedValueChangeWithProgress:(CGFloat)progress;
-@end
-
-
 SWIFT_CLASS("_TtC7cableUi17BMActionSheetView")
 @interface BMActionSheetView : UIView
 - (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14SPCornerButton")
-@interface SPCornerButton : UIButton
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14BMCornerButton")
-@interface BMCornerButton : SPCornerButton
-@property (nonatomic, getter=isEnabled) BOOL enabled;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -2087,23 +1502,6 @@ SWIFT_CLASS("_TtC7cableUi13BMMessageInfo")
 @end
 
 
-
-@class UIEvent;
-
-SWIFT_CLASS("_TtC7cableUi18BaseViewController")
-@interface BaseViewController : UIViewController
-- (void)viewDidLoad;
-- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14BaseWindowView")
-@interface BaseWindowView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_CLASS("_TtC7cableUi16BeePopoverAction")
@@ -2124,29 +1522,8 @@ SWIFT_CLASS("_TtC7cableUi17CUIAudioSoundView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIImage;
 
-SWIFT_CLASS("_TtC7cableUi17SPCornerImageView")
-@interface SPCornerImageView : UIImageView
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi18CUIAvatarImageView")
-@interface CUIAvatarImageView : SPCornerImageView
-- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
+@class UIGestureRecognizer;
 
 @interface CUIBaseViewController (SWIFT_EXTENSION(cableUi))
 /// *@return true: 触发手势， false:取消手势触发
@@ -2492,14 +1869,6 @@ SWIFT_CLASS("_TtC7cableUi13CUINotication")
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi18CUIRecordAlertView")
-@interface CUIRecordAlertView : UIView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC7cableUi21LBXScanViewController")
 @interface LBXScanViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 - (void)viewDidLoad;
@@ -2605,19 +1974,6 @@ SWIFT_CLASS("_TtC7cableUi9CUISketch")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSTextContainer;
-
-SWIFT_CLASS("_TtC7cableUi11CUITextView")
-@interface CUITextView : UITextView <UITextViewDelegate>
-- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
-- (void)textViewDidChange:(UITextView * _Nonnull)textView;
-- (void)copy:(id _Nullable)sender;
-- (void)cut:(id _Nullable)sender;
-- (void)paste:(id _Nullable)sender;
-- (nonnull instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer * _Nullable)textContainer OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=7.0);
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
 
 
 
@@ -2643,50 +1999,10 @@ SWIFT_CLASS("_TtC7cableUi18CircleProgressView")
 - (void)clickHandler;
 @end
 
-@class UICollectionReusableView;
-@class UICollectionViewLayout;
-
-SWIFT_CLASS("_TtC7cableUi19EmojiCollectionView")
-@interface EmojiCollectionView : UIView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (UICollectionReusableView * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView viewForSupplementaryElementOfKind:(NSString * _Nonnull)kind atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (void)onDeleteEmojiHandler;
-@end
-
-
-
-
-SWIFT_CLASS("_TtC7cableUi19FileDownloadService")
-@interface FileDownloadService : HttpClient
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi15GoogleMapHelper")
-@interface GoogleMapHelper : HttpClient
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
 
 SWIFT_CLASS("_TtC7cableUi17IMColorAvatarTool")
 @interface IMColorAvatarTool : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi15IMEditPhotoView")
-@interface IMEditPhotoView : BaseWindowView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -2696,66 +2012,9 @@ SWIFT_CLASS("_TtC7cableUi9IMGifInfo")
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi23IMHotPIcWaterFlowLayout")
-@interface IMHotPIcWaterFlowLayout : UICollectionViewFlowLayout
-@property (nonatomic) IBInspectable NSInteger lie;
-@property (nonatomic) IBInspectable CGFloat marginMinH;
-@property (nonatomic) IBInspectable CGFloat marginMinV;
-@property (nonatomic) IBInspectable CGFloat marginLeft;
-@property (nonatomic) IBInspectable CGFloat marginRight;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
-@end
-
-@class UICollectionViewLayoutAttributes;
-
-@interface IMHotPIcWaterFlowLayout (SWIFT_EXTENSION(cableUi))
-- (void)prepareLayout;
-- (NSArray<UICollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) CGSize collectionViewContentSize;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12IMHotPicCell")
-@interface IMHotPicCell : UICollectionViewCell
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC7cableUi12IMHotPicInfo")
 @interface IMHotPicInfo : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12SPCornerView")
-@interface SPCornerView : UIView
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable shadowColor;
-@property (nonatomic) IBInspectable float shadowOpacity;
-@property (nonatomic) IBInspectable CGSize shadowOffset;
-@property (nonatomic) IBInspectable CGFloat shadowRadius;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12IMHotPicView")
-@interface IMHotPicView : SPCornerView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface IMHotPicView (SWIFT_EXTENSION(cableUi)) <UICollectionViewDataSource, UICollectionViewDelegate>
-- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
 
 
@@ -2837,6 +2096,7 @@ SWIFT_CLASS("_TtC7cableUi15LPAlertViewTool")
 
 
 
+@class UICollectionViewLayout;
 
 SWIFT_CLASS("_TtC7cableUi16LPCollectionView")
 @interface LPCollectionView : UICollectionView
@@ -2856,61 +2116,6 @@ SWIFT_CLASS("_TtC7cableUi18LPExpandAreaButton")
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12LPImageCache")
-@interface LPImageCache : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class PhotoModel;
-
-SWIFT_PROTOCOL("_TtP7cableUi20ZYPhotoAlbumProtocol_")
-@protocol ZYPhotoAlbumProtocol <NSObject>
-@optional
-- (void)photoAlbumWithSelectPhotos:(NSArray<PhotoModel *> * _Nonnull)selectPhotos isSelectOriginImage:(BOOL)isSelectOriginImage SWIFT_AVAILABILITY(ios,introduced=8.0) SWIFT_AVAILABILITY(ios,introduced=8.0);
-- (void)photoAlbumWithClipPhoto:(UIImage * _Nullable)clipPhoto SWIFT_AVAILABILITY(ios,introduced=8.0);
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi17LPImagePickerTool")
-@interface LPImagePickerTool : NSObject <ZYPhotoAlbumProtocol>
-- (void)photoAlbumWithSelectPhotos:(NSArray<PhotoModel *> * _Nonnull)selectPhotos isSelectOriginImage:(BOOL)isSelectOriginImage;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-@class UIImagePickerController;
-@class UINavigationController;
-
-@interface LPImagePickerTool (SWIFT_EXTENSION(cableUi)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-- (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
-- (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> * _Nonnull)info;
-- (void)navigationController:(UINavigationController * _Nonnull)navigationController didShowViewController:(UIViewController * _Nonnull)viewController animated:(BOOL)animated;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14LPOpenFileTool")
-@interface LPOpenFileTool : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-@class QLPreviewController;
-@protocol QLPreviewItem;
-
-@interface LPOpenFileTool (SWIFT_EXTENSION(cableUi)) <QLPreviewControllerDataSource>
-- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
-- (id <QLPreviewItem> _Nonnull)previewController:(QLPreviewController * _Nonnull)controller previewItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@class UIDocumentPickerViewController;
-
-@interface LPOpenFileTool (SWIFT_EXTENSION(cableUi)) <UIDocumentPickerDelegate>
-- (void)documentPicker:(UIDocumentPickerViewController * _Nonnull)controller didPickDocumentAtURL:(NSURL * _Nonnull)url;
-- (void)documentPickerWasCancelled:(UIDocumentPickerViewController * _Nonnull)controller;
 @end
 
 
@@ -2978,226 +2183,15 @@ SWIFT_CLASS("_TtC7cableUi17PhoneContactsCell")
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi16PhotoBrowserView")
-@interface PhotoBrowserView : BaseWindowView <UIScrollViewDelegate>
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface PhotoBrowserView (SWIFT_EXTENSION(cableUi)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-
-@interface PhotoBrowserView (SWIFT_EXTENSION(cableUi)) <UICollectionViewDataSource, UICollectionViewDelegate>
-- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didEndDisplayingCell:(UICollectionViewCell * _Nonnull)cell forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
-
-
-@interface PhotoBrowserView (SWIFT_EXTENSION(cableUi))
-- (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)decelerate;
-- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
-- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
-- (void)scrollViewWillBeginDecelerating:(UIScrollView * _Nonnull)scrollView;
-@end
-
-
-
-
-
-
 SWIFT_CLASS("_TtC7cableUi10PhotoModel")
 @interface PhotoModel : NSObject
 - (nonnull instancetype)init;
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi11QDAlertView")
-@interface QDAlertView : BaseWindowView
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi11SPAlertView")
-@interface SPAlertView : BaseWindowView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi13SPCornerLabel")
-@interface SPCornerLabel : UILabel
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12SPBadgeLabel")
-@interface SPBadgeLabel : SPCornerLabel
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi11SPBaseBrush")
-@interface SPBaseBrush : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi7SPBoard")
-@interface SPBoard : UIView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-
-@interface SPBoard (SWIFT_EXTENSION(cableUi))
-- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
-- (void)touchesMoved:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
-- (void)touchesEnded:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi18SPBoardSettingView")
-@interface SPBoardSettingView : SPCornerView
-- (void)awakeFromNib;
-- (void)layoutSubviews;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-
-
-SWIFT_CLASS("_TtC7cableUi15SPCornerControl")
-@interface SPCornerControl : UIControl
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable shadowColor;
-@property (nonatomic) IBInspectable float shadowOpacity;
-@property (nonatomic) IBInspectable CGSize shadowOffset;
-@property (nonatomic) IBInspectable CGFloat shadowRadius;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-
-
 SWIFT_CLASS("_TtC7cableUi18SPExpandAreaButton")
 @interface SPExpandAreaButton : UIButton
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14SPGradientView")
-@interface SPGradientView : UIView
-- (void)drawRect:(CGRect)rect;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable startColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable endColor;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi15SPImageEditUtil")
-@interface SPImageEditUtil : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi13SPPencilBrush")
-@interface SPPencilBrush : SPBaseBrush
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi8SPPlayer")
-@interface SPPlayer : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-
-@interface SPPlayer (SWIFT_EXTENSION(cableUi))
-- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi13SPProgressHud")
-@interface SPProgressHud : BaseWindowView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi12SPTabBarItem")
-@interface SPTabBarItem : UITabBarItem
-@property (nonatomic, copy) IBInspectable NSString * _Nonnull normalImage;
-@property (nonatomic, copy) IBInspectable NSString * _Nonnull selectImage;
-@property (nonatomic, strong) IBInspectable UIColor * _Nonnull normalColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nonnull selectedColor;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi11SPTextFiled")
-@interface SPTextFiled : UITextField
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable placeHolderColor;
-@property (nonatomic) IBInspectable NSInteger placeHolderSize;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi10SPTextView")
-@interface SPTextView : UITextView
-@property (nonatomic) IBInspectable CGFloat cornerRadius;
-@property (nonatomic) IBInspectable CGFloat borderSize;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable bordersColor;
-@property (nonatomic) IBInspectable NSInteger alignment;
-@property (nonatomic, copy) IBInspectable NSString * _Nullable placeHolder;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable placeHolderColor;
-- (nonnull instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer * _Nullable)textContainer OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=7.0);
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi18SPTitleSectionView")
-@interface SPTitleSectionView : UIScrollView
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable selectedColor;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable normalColor;
-@property (nonatomic) IBInspectable CGFloat paddingToBotton;
-@property (nonatomic, strong) IBInspectable UIColor * _Nullable lineColor;
-@property (nonatomic) IBInspectable BOOL centerAlign;
-- (void)didMoveToSuperview;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -3210,12 +2204,6 @@ SWIFT_PROTOCOL("_TtP7cableUi26SPTitleSectionViewDelegate_")
 - (void)didSelectedSectionAtIndexWithIndex:(NSInteger)index;
 @optional
 - (NSInteger)fristShowIndex SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi11SPVideoInfo")
-@interface SPVideoInfo : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -3232,13 +2220,6 @@ SWIFT_CLASS("_TtC7cableUi23SeeionListTableViewCell")
 
 @interface SeeionListTableViewCell (SWIFT_EXTENSION(cableUi))
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi17StickerHeaderView")
-@interface StickerHeaderView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -3306,26 +2287,12 @@ SWIFT_CLASS("_TtC7cableUi18StickersStaticCell")
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi12SubImageView")
-@interface SubImageView : UIView <UIScrollViewDelegate>
-- (void)awakeFromNib;
-- (UIView * _Nullable)viewForZoomingInScrollView:(UIScrollView * _Nonnull)scrollView SWIFT_WARN_UNUSED_RESULT;
-- (void)scrollViewDidZoom:(UIScrollView * _Nonnull)scrollView;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC7cableUi17SystemOutsideUtil")
 @interface SystemOutsideUtil : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi13TimestampUtil")
-@interface TimestampUtil : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 @interface UIButton (SWIFT_EXTENSION(cableUi))
@@ -3355,30 +2322,6 @@ SWIFT_CLASS("_TtC7cableUi13TimestampUtil")
 
 
 
-
-
-
-
-
-
-SWIFT_CLASS("_TtC7cableUi11UILabelUtil")
-@interface UILabelUtil : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi9UIManager")
-@interface UIManager : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi14UINotNullLabel")
-@interface UINotNullLabel : UILabel
-@property (nonatomic, copy) NSString * _Nullable text;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 
@@ -3436,6 +2379,13 @@ SWIFT_CLASS("_TtC7cableUi21ZYCachingImageManager")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_PROTOCOL("_TtP7cableUi20ZYPhotoAlbumProtocol_")
+@protocol ZYPhotoAlbumProtocol <NSObject>
+@optional
+- (void)photoAlbumWithSelectPhotos:(NSArray<PhotoModel *> * _Nonnull)selectPhotos isSelectOriginImage:(BOOL)isSelectOriginImage SWIFT_AVAILABILITY(ios,introduced=8.0) SWIFT_AVAILABILITY(ios,introduced=8.0);
+- (void)photoAlbumWithClipPhoto:(UIImage * _Nullable)clipPhoto SWIFT_AVAILABILITY(ios,introduced=8.0);
+@end
 
 
 SWIFT_CLASS("_TtC7cableUi31ZYPhotoNavigationViewController")

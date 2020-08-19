@@ -831,6 +831,8 @@ SWIFT_CLASS("_TtC7cableUi13IMSendingView")
 
 SWIFT_CLASS("_TtC7cableUi7IMuiApi")
 @interface IMuiApi : NSObject
+- (void)initSdkWithAppKey:(NSString * _Nonnull)appKey SWIFT_METHOD_FAMILY(none);
+- (void)initSdk SWIFT_METHOD_FAMILY(none);
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2041,6 +2043,8 @@ SWIFT_CLASS("_TtC7cableUi13IMSendingView")
 
 SWIFT_CLASS("_TtC7cableUi7IMuiApi")
 @interface IMuiApi : NSObject
+- (void)initSdkWithAppKey:(NSString * _Nonnull)appKey SWIFT_METHOD_FAMILY(none);
+- (void)initSdk SWIFT_METHOD_FAMILY(none);
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

@@ -1124,10 +1124,6 @@ SWIFT_CLASS("_TtC7cableUi17SystemOutsideUtil")
 
 
 
-@interface UIView (SWIFT_EXTENSION(cableUi))
-@property (nonatomic, copy) void (^ _Nullable tapClickHandler)(UITapGestureRecognizer * _Nonnull);
-- (void)tapActionWithTapGesture:(UITapGestureRecognizer * _Nonnull)tapGesture;
-@end
 
 
 
@@ -2336,10 +2332,6 @@ SWIFT_CLASS("_TtC7cableUi17SystemOutsideUtil")
 
 
 
-@interface UIView (SWIFT_EXTENSION(cableUi))
-@property (nonatomic, copy) void (^ _Nullable tapClickHandler)(UITapGestureRecognizer * _Nonnull);
-- (void)tapActionWithTapGesture:(UITapGestureRecognizer * _Nonnull)tapGesture;
-@end
 
 
 

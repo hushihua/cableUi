@@ -113,6 +113,10 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     <!-- 1:显示emoji, 2:显示sticker -->
     <key>StickerType</key>
     <integer>2</integer>
+    
+    <!-- 设置聊天室默认头像 -->
+    <key>AvatarDefatulImage</key>
+    <string>asdf</string>
 </dict>
 </plist>
 

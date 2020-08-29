@@ -54,11 +54,11 @@
 		</data>
 		<key>Frameworks/iPush.framework/GlobalErrorWindow.nib/objects-11.0+.nib</key>
 		<data>
-		omYwFRZGhOhF9mSpHgWhFIqzcqQ=
+		cX2yqhSvLs9kTM8dRittYXIRK7U=
 		</data>
 		<key>Frameworks/iPush.framework/GlobalErrorWindow.nib/runtime.nib</key>
 		<data>
-		kEQYIUH5g21gj6j8SP8O2yx0D4o=
+		XAFGRT2wu6IAsBJytLTwLnwMxZ4=
 		</data>
 		<key>Frameworks/iPush.framework/Info.plist</key>
 		<data>
@@ -66,11 +66,11 @@
 		</data>
 		<key>Frameworks/iPush.framework/_CodeSignature/CodeResources</key>
 		<data>
-		6hnkGVg2A4nt9zLXDhlS5PMy8iM=
+		Cpr6lM7G2/el9bvPKCnxqk8si/k=
 		</data>
 		<key>Frameworks/iPush.framework/iPush</key>
 		<data>
-		xn0bLCx+9ZUuK0hsCkggUPn04oY=
+		ZIeOOEg+8Tr8bG2lbVyYrfWBz0E=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -254,22 +254,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			omYwFRZGhOhF9mSpHgWhFIqzcqQ=
+			cX2yqhSvLs9kTM8dRittYXIRK7U=
 			</data>
 			<key>hash2</key>
 			<data>
-			CuM4fGYwN3uNQXAM4ZDogtZYE1fwEDvaEz0EnHP2DLo=
+			HLdmU4gpjDVqL8vDXw2VNhxHqM/lzO3aQ4sG49fazKU=
 			</data>
 		</dict>
 		<key>Frameworks/iPush.framework/GlobalErrorWindow.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kEQYIUH5g21gj6j8SP8O2yx0D4o=
+			XAFGRT2wu6IAsBJytLTwLnwMxZ4=
 			</data>
 			<key>hash2</key>
 			<data>
-			TVXefMO47Y7hje4+jEtbrL3TFQwvm403Xc092OPskHc=
+			wArQByPe1FDNyl7ITWfartYxye14Vv1Q02kdhvP7o8c=
 			</data>
 		</dict>
 		<key>Frameworks/iPush.framework/Info.plist</key>
@@ -287,22 +287,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6hnkGVg2A4nt9zLXDhlS5PMy8iM=
+			Cpr6lM7G2/el9bvPKCnxqk8si/k=
 			</data>
 			<key>hash2</key>
 			<data>
-			E7zlDai9O27ERev3G/StKrefHoaP3MC5FB/TNGy6P9I=
+			JzOoZr8B0BnBWk6RZIzR0Mo0QVvXMvt1uq9sHXRsVBE=
 			</data>
 		</dict>
 		<key>Frameworks/iPush.framework/iPush</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xn0bLCx+9ZUuK0hsCkggUPn04oY=
+			ZIeOOEg+8Tr8bG2lbVyYrfWBz0E=
 			</data>
 			<key>hash2</key>
 			<data>
-			BJ5bOjplOblMeui18HfgEGbYfwnwEDKScUwr3oJkk/8=
+			0nPx3a6HXKQFawog1dqaolBdzZ8kBe5HMuIF1+M5jYw=
 			</data>
 		</dict>
 		<key>calling.mp3</key>

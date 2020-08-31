@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        IMuiApi.getInstance().DEBUG = true                                                      //true:连接测试服务
+        IMuiApi.getInstance().DEBUG = 2                                                      //true:连接测试服务
         IMuiApi.getInstance().initSdk()
         PushApi.getInstance().registerNotification(application: application, delegate: self)    //审请获取 deviceToken
         PushApi.getInstance().registerUID { (response:PHResponse<String>) in                    //生成register_id

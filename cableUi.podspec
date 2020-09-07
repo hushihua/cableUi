@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.author       = "胡式华"
   spec.name         = "cableUi"
-  spec.version      = "1.1.5"
+  spec.version      = "1.1.6"
   spec.summary      = "cableUi SDK for iOS"
   spec.description  = "cable ui SDK for iOS"
   spec.homepage     = "https://github.com/hushihua/cableUi.git"
@@ -30,8 +30,5 @@ Pod::Spec.new do |spec|
   spec.dependency 'MBProgressHUD'
   spec.dependency 'SnapKit'
   spec.dependency 'SQLite.swift'
-  spec.dependency 'GoogleMaps'
-  spec.dependency 'GooglePlaces'
-  spec.dependency 'GooglePlacePicker'
   
 end

@@ -190,11 +190,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import AVFoundation;
 @import CoreGraphics;
-@import CoreLocation;
 @import Foundation;
-@import GoogleMaps;
-@import GooglePlaces;
 @import MJRefresh;
+@import MapKit;
 @import ObjectiveC;
 @import Photos;
 @import UIKit;
@@ -424,41 +422,6 @@ SWIFT_CLASS("_TtC7cableUi30CUIFriendRequestViewController")
 - (NSString * _Nullable)tableView:(UITableView * _Nonnull)tableView titleForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi28CUIGetLocationViewController")
-@interface CUIGetLocationViewController : CUIBaseViewController
-- (void)viewDidLoad;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class GMSAutocompleteViewController;
-@class GMSPlace;
-
-@interface CUIGetLocationViewController (SWIFT_EXTENSION(cableUi)) <GMSAutocompleteViewControllerDelegate>
-- (void)viewController:(GMSAutocompleteViewController * _Nonnull)viewController didAutocompleteWithPlace:(GMSPlace * _Nonnull)place;
-- (void)viewController:(GMSAutocompleteViewController * _Nonnull)viewController didFailAutocompleteWithError:(NSError * _Nonnull)error;
-- (void)wasCancelled:(GMSAutocompleteViewController * _Nonnull)viewController;
-@end
-
-
-
-@class CLLocationManager;
-@class CLLocation;
-@class GMSMapView;
-@class GMSCameraPosition;
-
-@interface CUIGetLocationViewController (SWIFT_EXTENSION(cableUi)) <CLLocationManagerDelegate, GMSMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
-- (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
-- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
-- (void)mapView:(GMSMapView * _Nonnull)mapView didChangeCameraPosition:(GMSCameraPosition * _Nonnull)position;
-- (void)mapView:(GMSMapView * _Nonnull)mapView idleAtCameraPosition:(GMSCameraPosition * _Nonnull)position;
-- (void)mapView:(GMSMapView * _Nonnull)mapView willMove:(BOOL)gesture;
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
@@ -744,21 +707,6 @@ SWIFT_CLASS("_TtC7cableUi28CUISeeionsListViewController")
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi29CUIShowLoctaionViewController")
-@interface CUIShowLoctaionViewController : CUIBaseViewController
-- (void)viewWillAppear:(BOOL)animated;
-- (void)viewWillDisappear:(BOOL)animated;
-- (void)viewDidLoad;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface CUIShowLoctaionViewController (SWIFT_EXTENSION(cableUi)) <CLLocationManagerDelegate, GMSMapViewDelegate>
-- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
-@end
-
-
 SWIFT_CLASS("_TtC7cableUi9CUISketch")
 @interface CUISketch : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -930,6 +878,16 @@ SWIFT_CLASS("_TtC7cableUi12LocationInfo")
 @end
 
 
+SWIFT_CLASS("_TtC7cableUi22LocationShowController")
+@interface LocationShowController : CUIBaseViewController <MKMapViewDelegate>
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 
@@ -1012,6 +970,24 @@ SWIFT_CLASS("_TtC7cableUi23SeeionListTableViewCell")
 
 @interface SeeionListTableViewCell (SWIFT_EXTENSION(cableUi))
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC7cableUi24SelectLocationController")
+@interface SelectLocationController : CUIBaseViewController
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class MKMapView;
+
+@interface SelectLocationController (SWIFT_EXTENSION(cableUi)) <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)mapView:(MKMapView * _Nonnull)mapView regionWillChangeAnimated:(BOOL)animated;
+- (void)mapView:(MKMapView * _Nonnull)mapView regionDidChangeAnimated:(BOOL)animated;
 @end
 
 
@@ -1398,11 +1374,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import AVFoundation;
 @import CoreGraphics;
-@import CoreLocation;
 @import Foundation;
-@import GoogleMaps;
-@import GooglePlaces;
 @import MJRefresh;
+@import MapKit;
 @import ObjectiveC;
 @import Photos;
 @import UIKit;
@@ -1632,41 +1606,6 @@ SWIFT_CLASS("_TtC7cableUi30CUIFriendRequestViewController")
 - (NSString * _Nullable)tableView:(UITableView * _Nonnull)tableView titleForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi28CUIGetLocationViewController")
-@interface CUIGetLocationViewController : CUIBaseViewController
-- (void)viewDidLoad;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class GMSAutocompleteViewController;
-@class GMSPlace;
-
-@interface CUIGetLocationViewController (SWIFT_EXTENSION(cableUi)) <GMSAutocompleteViewControllerDelegate>
-- (void)viewController:(GMSAutocompleteViewController * _Nonnull)viewController didAutocompleteWithPlace:(GMSPlace * _Nonnull)place;
-- (void)viewController:(GMSAutocompleteViewController * _Nonnull)viewController didFailAutocompleteWithError:(NSError * _Nonnull)error;
-- (void)wasCancelled:(GMSAutocompleteViewController * _Nonnull)viewController;
-@end
-
-
-
-@class CLLocationManager;
-@class CLLocation;
-@class GMSMapView;
-@class GMSCameraPosition;
-
-@interface CUIGetLocationViewController (SWIFT_EXTENSION(cableUi)) <CLLocationManagerDelegate, GMSMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
-- (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
-- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
-- (void)mapView:(GMSMapView * _Nonnull)mapView didChangeCameraPosition:(GMSCameraPosition * _Nonnull)position;
-- (void)mapView:(GMSMapView * _Nonnull)mapView idleAtCameraPosition:(GMSCameraPosition * _Nonnull)position;
-- (void)mapView:(GMSMapView * _Nonnull)mapView willMove:(BOOL)gesture;
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
@@ -1952,21 +1891,6 @@ SWIFT_CLASS("_TtC7cableUi28CUISeeionsListViewController")
 @end
 
 
-SWIFT_CLASS("_TtC7cableUi29CUIShowLoctaionViewController")
-@interface CUIShowLoctaionViewController : CUIBaseViewController
-- (void)viewWillAppear:(BOOL)animated;
-- (void)viewWillDisappear:(BOOL)animated;
-- (void)viewDidLoad;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface CUIShowLoctaionViewController (SWIFT_EXTENSION(cableUi)) <CLLocationManagerDelegate, GMSMapViewDelegate>
-- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
-@end
-
-
 SWIFT_CLASS("_TtC7cableUi9CUISketch")
 @interface CUISketch : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -2138,6 +2062,16 @@ SWIFT_CLASS("_TtC7cableUi12LocationInfo")
 @end
 
 
+SWIFT_CLASS("_TtC7cableUi22LocationShowController")
+@interface LocationShowController : CUIBaseViewController <MKMapViewDelegate>
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 
@@ -2220,6 +2154,24 @@ SWIFT_CLASS("_TtC7cableUi23SeeionListTableViewCell")
 
 @interface SeeionListTableViewCell (SWIFT_EXTENSION(cableUi))
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC7cableUi24SelectLocationController")
+@interface SelectLocationController : CUIBaseViewController
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class MKMapView;
+
+@interface SelectLocationController (SWIFT_EXTENSION(cableUi)) <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)mapView:(MKMapView * _Nonnull)mapView regionWillChangeAnimated:(BOOL)animated;
+- (void)mapView:(MKMapView * _Nonnull)mapView regionDidChangeAnimated:(BOOL)animated;
 @end
 
 

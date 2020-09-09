@@ -571,6 +571,7 @@ SWIFT_CLASS("_TtC7cableUi19CUIIMViewController")
 
 
 @interface CUIIMViewController (SWIFT_EXTENSION(cableUi))
+- (void)onDismissAllInput;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
@@ -784,8 +785,6 @@ SWIFT_CLASS("_TtC7cableUi7IMuiApi")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
 @class UNNotification;
 
 @interface IMuiApi (SWIFT_EXTENSION(cableUi)) <PushNotificationDelegate>
@@ -793,6 +792,8 @@ SWIFT_CLASS("_TtC7cableUi7IMuiApi")
 - (void)willPresentWithNotification:(UNNotification * _Nonnull)notification completionHandler:(void (^ _Nonnull)(UNNotificationPresentationOptions))completionHandler;
 - (void)didReceiveRemoteNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo;
 @end
+
+
 
 
 /// 列表正在输入
@@ -1755,6 +1756,7 @@ SWIFT_CLASS("_TtC7cableUi19CUIIMViewController")
 
 
 @interface CUIIMViewController (SWIFT_EXTENSION(cableUi))
+- (void)onDismissAllInput;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
@@ -1968,8 +1970,6 @@ SWIFT_CLASS("_TtC7cableUi7IMuiApi")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
 @class UNNotification;
 
 @interface IMuiApi (SWIFT_EXTENSION(cableUi)) <PushNotificationDelegate>
@@ -1977,6 +1977,8 @@ SWIFT_CLASS("_TtC7cableUi7IMuiApi")
 - (void)willPresentWithNotification:(UNNotification * _Nonnull)notification completionHandler:(void (^ _Nonnull)(UNNotificationPresentationOptions))completionHandler;
 - (void)didReceiveRemoteNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo;
 @end
+
+
 
 
 /// 列表正在输入

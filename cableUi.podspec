@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.author       = "胡式华"
   spec.name         = "cableUi"
-  spec.version      = "1.2.0"
+  spec.version      = "1.2.1"
   spec.summary      = "cableUi SDK for iOS"
   spec.description  = "cable ui SDK for iOS"
   spec.homepage     = "https://github.com/hushihua/cableUi.git"

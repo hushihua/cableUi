@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.author       = "胡式华"
   spec.name         = "cableUi"
-  spec.version      = "1.2.1"
+  spec.version      = "1.2.2"
   spec.summary      = "cableUi SDK for iOS"
   spec.description  = "cable ui SDK for iOS"
   spec.homepage     = "https://github.com/hushihua/cableUi.git"
@@ -30,5 +30,9 @@ Pod::Spec.new do |spec|
   spec.dependency 'MBProgressHUD'
   spec.dependency 'SnapKit'
   spec.dependency 'SQLite.swift'
+  spec.dependency 'GoogleWebRTC'
+  
+  spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   
 end

@@ -790,41 +790,6 @@ SWIFT_CLASS("_TtC7cableUi15LPAlertViewTool")
 @end
 
 
-@class UICollectionViewLayout;
-
-SWIFT_CLASS("_TtC7cableUi16LPCollectionView")
-@interface LPCollectionView : UICollectionView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout * _Nonnull)layout OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface LPCollectionView (SWIFT_EXTENSION(cableUi))
-- (void)stopRefresh;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi18LPExpandAreaButton")
-@interface LPExpandAreaButton : UIButton
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi11LPTableView")
-@interface LPTableView : UITableView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface LPTableView (SWIFT_EXTENSION(cableUi))
-- (void)stopRefresh;
-@end
-
 
 SWIFT_CLASS("_TtC7cableUi12LocationInfo")
 @interface LocationInfo : NSObject
@@ -951,6 +916,7 @@ SWIFT_CLASS("_TtC7cableUi27StickerStaticCollectionView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UICollectionViewLayout;
 
 @interface StickerStaticCollectionView (SWIFT_EXTENSION(cableUi)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
@@ -1008,10 +974,10 @@ SWIFT_CLASS("_TtC7cableUi17SystemOutsideUtil")
 @end
 
 
+
 @interface UIButton (SWIFT_EXTENSION(cableUi))
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 
 
@@ -1900,41 +1866,6 @@ SWIFT_CLASS("_TtC7cableUi15LPAlertViewTool")
 @end
 
 
-@class UICollectionViewLayout;
-
-SWIFT_CLASS("_TtC7cableUi16LPCollectionView")
-@interface LPCollectionView : UICollectionView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout * _Nonnull)layout OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface LPCollectionView (SWIFT_EXTENSION(cableUi))
-- (void)stopRefresh;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi18LPExpandAreaButton")
-@interface LPExpandAreaButton : UIButton
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC7cableUi11LPTableView")
-@interface LPTableView : UITableView
-- (void)awakeFromNib;
-- (nonnull instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface LPTableView (SWIFT_EXTENSION(cableUi))
-- (void)stopRefresh;
-@end
-
 
 SWIFT_CLASS("_TtC7cableUi12LocationInfo")
 @interface LocationInfo : NSObject
@@ -2061,6 +1992,7 @@ SWIFT_CLASS("_TtC7cableUi27StickerStaticCollectionView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UICollectionViewLayout;
 
 @interface StickerStaticCollectionView (SWIFT_EXTENSION(cableUi)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
@@ -2118,10 +2050,10 @@ SWIFT_CLASS("_TtC7cableUi17SystemOutsideUtil")
 @end
 
 
+
 @interface UIButton (SWIFT_EXTENSION(cableUi))
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 
 

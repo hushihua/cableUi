@@ -1,0 +1,1278 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name cableUi
+import AVFoundation
+import AssetsLibrary
+import AudioToolbox
+import CommonCrypto
+import Contacts
+import CoreLocation
+import CoreServices
+import Dispatch
+import FLAnimatedImage
+import Foundation
+import IQKeyboardManagerSwift
+import MBProgressHUD
+import MJRefresh
+import MapKit
+import Photos
+import QuickLook
+@_exported import SDWebImage
+import SQLite
+import Security
+@_exported import SnapKit
+import Swift
+import TSVoiceConverter
+import UIKit
+import WebKit
+@_exported import cableUi
+import iChat
+import iMApi
+import iPush
+@objc public protocol SPTitleSectionViewDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func numberOfTitleSection() -> Swift.Int
+  @objc func cellForSectionTitleAtIndex(index: Swift.Int) -> Swift.String
+  @objc func didSelectedSectionAtIndex(index: Swift.Int)
+  @objc optional func fristShowIndex() -> Swift.Int
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class LBXScanView : UIKit.UIView {
+  public init(frame: CoreGraphics.CGRect, vstyle: cableUi.LBXScanViewStyle)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override dynamic open func draw(_ rect: CoreGraphics.CGRect)
+}
+extension CUSystemItem {
+  public func buildPrevious() -> CoreGraphics.CGFloat?
+}
+extension CUIIMViewController {
+  public class func CreaetViewController() -> cableUi.CUIIMViewController
+  public class func CreaetViewController(chatId: Swift.String) -> cableUi.CUIIMViewController
+  public class func CreaetViewController(session: iMApi.CUSession) -> cableUi.CUIIMViewController
+  public class func CreaetViewController(fromUid: Swift.String, handler: @escaping (iPush.PHResponse<cableUi.CUIIMViewController>) -> Swift.Void)
+}
+@objc @_inheritsConvenienceInitializers public class CUIIMViewController : cableUi.CUIBaseViewController, AVFAudio.AVAudioRecorderDelegate, UIKit.UIImagePickerControllerDelegate {
+  public var sessionInfo: iMApi.CUSession?
+  public var chatId: Swift.String?
+  public var toUid: Swift.String?
+  @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @objc get
+  }
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  public func setHeaderVishble(_ visible: Swift.Bool)
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func didReceiveMemoryWarning()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+public var ZYPhotoAlbumEnableDebugOn: Swift.Bool
+public var ZYNavigationHeight: CoreGraphics.CGFloat
+@objc @_inheritsConvenienceInitializers public class SeeionListTableViewCell : UIKit.UITableViewCell {
+  public var slideEnable: Swift.Bool
+  @objc override dynamic public func awakeFromNib()
+  @objc override dynamic public func prepareForReuse()
+  public func startSlideViewAnimation()
+  @available(iOS 3.0, *)
+  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension SeeionListTableViewCell {
+  public func hiddenSideslip()
+  @objc override dynamic public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers public class IMuiApi : ObjectiveC.NSObject {
+  public static func getInstance() -> cableUi.IMuiApi
+  public var DEBUG: Swift.Int {
+    get
+    set
+  }
+  @objc public func initSdk(appKey: Swift.String)
+  @objc public func initSdk()
+  public func login(uid: Swift.String, password: Swift.String, handler: @escaping (iPush.PHResponse<iMApi.CULoginResponse>) -> Swift.Void)
+  public func logout(handler: @escaping (iPush.PHResponse<Swift.Bool>) -> Swift.Void)
+  public func resetLanguage(language: cableUi.Language)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension IMuiApi : iPush.PushNotificationDelegate {
+  @objc dynamic public func didReceive(notification: UserNotifications.UNNotification)
+  @objc dynamic public func willPresent(notification: UserNotifications.UNNotification, completionHandler: @escaping (UserNotifications.UNNotificationPresentationOptions) -> Swift.Void)
+  @objc dynamic public func didReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
+}
+#warning("下一步就要改这个，什么鬼逻辑，init的时候就播放动画，妈的")
+@objc @_inheritsConvenienceInitializers public class InputingAnimationView : UIKit.UIView {
+  @objc override dynamic public func awakeFromNib()
+  public func startAnimation()
+  public func pauseAnimation()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ChatInputingAnimationView : UIKit.UIView {
+  @objc override dynamic public func awakeFromNib()
+  public func startAnimation()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class CUIMData : ObjectiveC.NSObject {
+  public static func getInstance() -> cableUi.CUIMData
+  public var currentChatId: Swift.String?
+  public func clean()
+  public func loadData(callback: @escaping (Swift.Bool) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension CUIIMViewController {
+  @objc dynamic public func onDismissAllInput()
+  @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewDidEndScrollingAnimation(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewDidEndDecelerating(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewWillBeginDragging(_ scrollView: UIKit.UIScrollView)
+}
+extension CUIIMViewController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource, UIKit.UIScrollViewDelegate {
+  public func compareDataSource() -> Swift.Bool
+  public func onTableViewLoadData(page: Swift.Int)
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+extension CUIIMViewController {
+  public func handlerLinkText(linkInfo: cableUi.IMLinkTextInfo)
+  public func sendFriendRequest(username: Swift.String)
+  public func gotoFriendDetail(uid: Swift.String)
+  public func goToSeeLocation(msgInfo: iMApi.CUMessage)
+  public func picPreview(msgInfo: iMApi.CUMessage, row: Swift.Int)
+  public func filePreview(info: cableUi.BMMessageInfo)
+  public func downVoice(downType: Swift.Int, info: cableUi.BMMessageInfo)
+}
+extension CUIMData {
+  public func updateMessageCache(chatId: Swift.String, list: [cableUi.BMMessageInfo])
+  public func addMessage(chatId: Swift.String, message: cableUi.BMMessageInfo)
+  public func deleteMessage(chatId: Swift.String)
+  public func deleteMessage(chatId: Swift.String, message: cableUi.BMMessageInfo)
+  public func deleteMessage(chatId: Swift.String, index: Swift.Int)
+  public func getChatMessages(chatId: Swift.String, handler: (([cableUi.BMMessageInfo]) -> ()))
+  public func getChatMessageIndex(message: cableUi.BMMessageInfo) -> Swift.Int?
+  public func getChatMessageCount(chatId: Swift.String) -> Swift.Int
+  public func getMessageInfo(chatId: Swift.String, index: Swift.Int) -> cableUi.BMMessageInfo?
+  public func getFirstMessage(chatId: Swift.String) -> cableUi.BMMessageInfo?
+  public func getFirstSeqMessage(chatId: Swift.String) -> cableUi.BMMessageInfo?
+  public func getLastSeqMessage(chatId: Swift.String, handler: ((cableUi.BMMessageInfo?) -> ()))
+  public func getLastVisiableMessage(chatId: Swift.String, handler: ((cableUi.BMMessageInfo?) -> ()))
+  public func getLastReceiveMessage(chatId: Swift.String) -> cableUi.BMMessageInfo?
+  public func getLastMessage(chatId: Swift.String, handler: ((cableUi.BMMessageInfo?) -> ()))
+  public func getFirstVisiableMessage(chatId: Swift.String, handler: ((cableUi.BMMessageInfo?) -> ()))
+  public func getBeforeMessage(message: cableUi.BMMessageInfo) -> cableUi.BMMessageInfo?
+  public func calculateAitCount(_ chatId: Swift.String, _ startSeq: Swift.Int) -> Swift.Int
+  public func findUnreadAitMeFristMessage(_ chatId: Swift.String, _ lastReadSeq: Swift.Int) -> cableUi.BMMessageInfo?
+  public func updateChatMessage(chatId: Swift.String, index: Swift.Int, message: cableUi.BMMessageInfo)
+  public func updateChatMessages(chatId: Swift.String, messages: [cableUi.BMMessageInfo])
+  public func updateChatMessage(chatId: Swift.String, message: cableUi.BMMessageInfo)
+  public func setMessageDeleteStete(chatId: Swift.String, messageId: Swift.String, handler: ((cableUi.BMMessageInfo?) -> ()))
+}
+extension CUIMData {
+  public func createTimeMessage(list: [cableUi.BMMessageInfo]) -> [cableUi.BMMessageInfo]
+  public func collectionAllChatRoomMessage(chatId: Swift.String)
+  public func handleContinuousMessage(startMsg: cableUi.BMMessageInfo, endMsg: cableUi.BMMessageInfo)
+}
+@objc @_inheritsConvenienceInitializers public class SelectLocationController : cableUi.CUIBaseViewController {
+  public var isMoveMap: Swift.Bool
+  public var sendLocationCallBack: ((cableUi.LocationInfo) -> ())?
+  public class func instance() -> cableUi.SelectLocationController
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension SelectLocationController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource, MapKit.MKMapViewDelegate {
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @objc dynamic public func mapView(_ mapView: MapKit.MKMapView, regionWillChangeAnimated animated: Swift.Bool)
+  @objc dynamic public func mapView(_ mapView: MapKit.MKMapView, regionDidChangeAnimated animated: Swift.Bool)
+}
+extension UIWindow {
+  public func topMostWindowController() -> UIKit.UIViewController?
+  public func currentViewController() -> UIKit.UIViewController?
+}
+@objc @_inheritsConvenienceInitializers public class CUIAudioSoundView : UIKit.UIView {
+  @objc override dynamic public func awakeFromNib()
+  @objc override dynamic public func draw(_ rect: CoreGraphics.CGRect)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public typealias StickerStaticScrollBlock = (Swift.Int) -> Swift.Void
+public typealias SticStickersTapCellBlock = (iMApi.CUStickerItem) -> Swift.Void
+public typealias StickerStaticSearchTapBlock = () -> Swift.Void
+public typealias StickerConfigSizeBlock = (CoreGraphics.CGFloat, CoreGraphics.CGFloat, Swift.Bool, Swift.Int) -> Swift.Void
+@objc @_inheritsConvenienceInitializers public class StickerStaticCollectionView : UIKit.UIView {
+  public class func instance() -> cableUi.StickerStaticCollectionView
+  public func configView(callBack: @escaping cableUi.StickerStaticScrollBlock, tapBlock: cableUi.SticStickersTapCellBlock?, searchBlock: cableUi.StickerStaticSearchTapBlock?, configSizeBlock: cableUi.StickerConfigSizeBlock?, deleteHistoryBlock: cableUi.StickersDeleteHistoryBlock?, stickersLongPressBlock: cableUi.StickersLongPressBlock?)
+  public func scrollToIndexSection(section: Swift.Int)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension StickerStaticCollectionView : UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegate, UIKit.UICollectionViewDelegateFlowLayout {
+  @objc dynamic open func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @objc dynamic open func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic open func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, viewForSupplementaryElementOfKind kind: Swift.String, at indexPath: Foundation.IndexPath) -> UIKit.UICollectionReusableView
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, referenceSizeForHeaderInSection section: Swift.Int) -> CoreGraphics.CGSize
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+  @objc dynamic public func scrollViewWillBeginDragging(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewDidEndDecelerating(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewDidEndDragging(_ scrollView: UIKit.UIScrollView, willDecelerate decelerate: Swift.Bool)
+  @objc dynamic public func scrollViewDidEndScrollingAnimation(_ scrollView: UIKit.UIScrollView)
+}
+@objc @_inheritsConvenienceInitializers public class CUINotication : ObjectiveC.NSObject {
+  public var appid: Swift.Int?
+  public var type: Swift.Int?
+  public var chatId: Swift.String?
+  public var uid: Swift.String?
+  public var params: [Swift.String : Any]
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum EmptyType {
+  case emptyData
+  case networkError
+  public static func == (a: cableUi.EmptyType, b: cableUi.EmptyType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol EmptyDataSetProtocol {
+}
+extension EmptyDataSetProtocol where Self : UIKit.UIView {
+  public func addEmptyView(emptyVerticalOffset: CoreGraphics.CGFloat, verticalOffsetY: CoreGraphics.CGFloat = 0, centerOffset: CoreGraphics.CGFloat = 0, type: cableUi.EmptyType = .emptyData, iconName: Swift.String = "empty_no_data", iconImage: UIKit.UIImage? = nil, title: Swift.String? = IMLocalizedString(key: "Empty_DataSet_No_Data"), actionTitle: Swift.String = IMLocalizedString(key: "dataSet_touch_retry"), action: ObjectiveC.Selector? = nil, titleFont: CoreGraphics.CGFloat = 16, actionLabelFont: CoreGraphics.CGFloat = 16, titleColor: UIKit.UIColor = RGBColorFrom0x(0x666666), actionLabelColor: UIKit.UIColor = RGBColorFrom0x(0xc6c6c6), backgColor: UIKit.UIColor? = LPBackgroundColor)
+  public func hideEmptyView()
+}
+extension EmptyDataSetProtocol where Self : UIKit.UIViewController {
+  public func addEmptyView(emptyVerticalOffset: CoreGraphics.CGFloat, type: cableUi.EmptyType = .emptyData, iconName: Swift.String = "empty_no_data", iconImage: UIKit.UIImage? = nil, title: Swift.String? = IMLocalizedString(key: "Empty_DataSet_No_Data"), actionTitle: Swift.String = IMLocalizedString(key: "dataSet_touch_retry"), action: ObjectiveC.Selector, titleFont: CoreGraphics.CGFloat = 16, actionLabelFont: CoreGraphics.CGFloat = 16, titleColor: UIKit.UIColor = RGBColorFrom0x(0x666666), actionLabelColor: UIKit.UIColor = RGBColorFrom0x(0xc6c6c6))
+  public func hideEmptyView()
+}
+@_inheritsConvenienceInitializers public class BMMessageInfo : iMApi.CUMessage {
+  public func buildPrevious()
+  @objc override dynamic public init()
+  @objc required public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension BMMessageInfo {
+  public func parseToBMMessage(_ info: iMApi.CUMessage)
+  public class func toBMMessage(_ info: iMApi.CUMessage) -> cableUi.BMMessageInfo
+}
+extension CUMergeForwardItem {
+  public func buildPrevious() -> CoreGraphics.CGFloat?
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class CUIGroupMember : ObjectiveC.NSObject, Foundation.NSCoding {
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUIIMViewController : cableUi.IMRecorderDelegate {
+  public func volumeChange(volume: Swift.Double)
+  public func failRecord(state: Swift.Int)
+  public func onConvertBegin()
+  public func onRecordTimeOut()
+  public func onConvertSuccess(voiceData: Foundation.Data, fileName: Swift.String, path: Swift.String, recordTime: Swift.Double)
+  public func onConvertFinish(wavFileName: Swift.String, amrFileName: Swift.String, recordTime: Swift.Double)
+}
+public typealias EmojiCellClickHandler = (Swift.String, Swift.Int) -> Swift.Void
+public typealias EmojiDeleteHandler = () -> Swift.Void
+@objc @_inheritsConvenienceInitializers public class MainStickerSummaryCell : UIKit.UICollectionViewCell {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUIIMViewController {
+  @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  @objc override dynamic public func refreshByLanguageChange()
+  public func initView()
+}
+@objc @_inheritsConvenienceInitializers public class IMColorAvatarTool : ObjectiveC.NSObject {
+  public static func getInstance() -> cableUi.IMColorAvatarTool
+  public func generateImage(colors: Swift.String, name: Swift.String, handler: @escaping ((UIKit.UIImage?) -> (Swift.Void)))
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension UIView {
+  public var x: CoreGraphics.CGFloat {
+    get
+    set(x)
+  }
+  public var y: CoreGraphics.CGFloat {
+    get
+    set(y)
+  }
+  public var width: CoreGraphics.CGFloat {
+    get
+    set(width)
+  }
+  public var height: CoreGraphics.CGFloat {
+    get
+    set(height)
+  }
+  public var bottom: CoreGraphics.CGFloat {
+    get
+    set(bottom)
+  }
+  public var right: CoreGraphics.CGFloat {
+    get
+    set(right)
+  }
+  public var left: CoreGraphics.CGFloat {
+    get
+    set(left)
+  }
+  public var top: CoreGraphics.CGFloat {
+    get
+    set(top)
+  }
+  public var centerX: CoreGraphics.CGFloat {
+    get
+    set(centerX)
+  }
+  public var centerY: CoreGraphics.CGFloat {
+    get
+    set(centerY)
+  }
+  public class func loadFromXIB(nibName: Swift.String? = nil) -> UIKit.UIView
+  public func drawViewArc(frame: CoreGraphics.CGRect, fillColor: UIKit.UIColor)
+  public func createGradientLayer(colors: Swift.String?)
+  public func corner(byRoundingCorners corners: UIKit.UIRectCorner, radii: CoreGraphics.CGFloat, isNeedBorder: Swift.Bool = true)
+  public func drawDashLine(_ lineView: UIKit.UIView, strokeColor: UIKit.UIColor, lineWidth: CoreGraphics.CGFloat = 1, lineLength: Swift.Int = 10, lineSpacing: Swift.Int = 5)
+}
+public typealias BMActionHandler = () -> (Swift.Void)
+@objc @_inheritsConvenienceInitializers public class BMActionSheetView : UIKit.UIView {
+  @objc override dynamic public func awakeFromNib()
+  public func setUp()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class CUIFriendAddViewController : cableUi.CUIBaseViewController {
+  public class func instanceFriendAddViewController() -> cableUi.CUIFriendAddViewController
+  public var qrCodeUrl: Swift.String?
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func refreshByLanguageChange()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUIFriendAddViewController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+extension CUIFriendAddViewController : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+}
+extension CUFriendInfo {
+  public func objectToJson() -> Swift.String
+  public class func jsonToObject(jsonStr: Swift.String) -> iMApi.CUFriendInfo?
+  public func objCopy() -> iMApi.CUFriendInfo?
+}
+@objc @_inheritsConvenienceInitializers public class CUISketch : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+public typealias EditFinishBlock = (UIKit.UIImage) -> Swift.Void
+@objc @_inheritsConvenienceInitializers public class IMPhotoPreView : UIKit.UIView {
+  public var image: UIKit.UIImage? {
+    get
+    set
+  }
+  public var editImageCallBack: ((UIKit.UIImage, Swift.Bool) -> ())?
+  @objc override dynamic public func awakeFromNib()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUIIMViewController : UIKit.UITextViewDelegate {
+  public func showForwardTipsHead(infos: [iMApi.CUMessage])
+  public func showReplayTipsHead(info: cableUi.BMMessageInfo, type: Swift.Int)
+  public func showEditTipsHead(info: cableUi.BMMessageInfo, isNeedResponseTxt: Swift.Bool = true)
+  @objc dynamic public func textViewDidBeginEditing(_ textView: UIKit.UITextView)
+  @objc dynamic public func textViewDidChange(_ textView: UIKit.UITextView)
+  @objc dynamic public func textView(_ textView: UIKit.UITextView, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
+}
+extension CUIMData {
+  public func updateGroupMembers(members: cableUi.CUIGroupMember)
+  public func searchGroupMemberInfo(chatId: Swift.String, uid: Swift.String) -> iMApi.CURole?
+  public func insertOrUpdateGroupMemberInfo(chatId: Swift.String, info: iMApi.CURole)
+}
+extension String {
+  public func messageResolveText(callBack: ((Swift.String, [Foundation.NSRange : Swift.String]) -> ()))
+  public func resolveText(_ isNeedResoleveSelf: Swift.Bool = false) -> Swift.String
+  public func hasAiteMyself() -> Swift.Bool
+  public func findLinkStr() -> [Foundation.NSTextCheckingResult]
+  public func findDoupStr() -> [Foundation.NSTextCheckingResult]
+  public func findAllAt() -> [Foundation.NSTextCheckingResult]
+  public func bulidAITPrototypeString(chatId: Swift.String?) -> Swift.String
+}
+@objc @_inheritsConvenienceInitializers public class PhoneContactsCell : UIKit.UITableViewCell {
+  @available(iOS 3.0, *)
+  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUFileItem {
+  public func getLocalFileUrl() -> Foundation.URL?
+  public func cacheFileByTmpUrl(tmpUrl: Foundation.URL) -> Swift.Int
+}
+@objc @_inheritsConvenienceInitializers public class StickersGifCell : UIKit.UICollectionViewCell {
+  @objc override dynamic public func awakeFromNib()
+  @objc override dynamic public func prepareForReuse()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUSession {
+  public func setIsInputing(flag: Swift.Bool, time: Foundation.TimeInterval)
+}
+extension CUIMData {
+  public func updateOrInsert(chatId: Swift.String, sketch: cableUi.CUISketch)
+  public func deleteSketch(chatId: Swift.String)
+  public func getSketch(chatId: Swift.String) -> cableUi.CUISketch?
+}
+public typealias MainStickersOnLoadingBlock = () -> Swift.Void
+public typealias MainStickersOffLoadingBlock = () -> Swift.Void
+public typealias MainStickersAddBlock = () -> Swift.Void
+public typealias MainStickersTapCellBlock = (iMApi.CUStickerItem) -> Swift.Void
+public typealias MainGifTapCellBlock = (iMApi.CUGifStickerItem) -> Swift.Void
+public typealias MainStickersSearchGifBlock = () -> Swift.Void
+public typealias MainStickersSearchStickBlock = () -> Swift.Void
+public typealias GifLongPressBlock = (iMApi.CUGifStickerItem, cableUi.StickersGifCell, Swift.Int) -> Swift.Void
+public typealias StickersLongPressBlock = (iMApi.CUStickerItem, cableUi.StickersStaticCell, Swift.Int) -> Swift.Void
+public typealias StickersManageBlock = () -> Swift.Void
+public typealias StickersDeleteHistoryBlock = () -> Swift.Void
+@objc @_inheritsConvenienceInitializers public class MainStickersView : UIKit.UIView {
+  public class func instance() -> cableUi.MainStickersView
+  public func showInView(parentsView: UIKit.UIView, rect: CoreGraphics.CGRect, loadingBlock: @escaping cableUi.MainStickersOnLoadingBlock, offLoadingBlock: cableUi.MainStickersOffLoadingBlock?, addGroupBlock: cableUi.MainStickersAddBlock?, tapCellBlock: cableUi.MainStickersTapCellBlock?, searchGifBlock: cableUi.MainStickersSearchGifBlock?, searchStickBlock: cableUi.MainStickersSearchStickBlock?, stickersManageBlock: cableUi.StickersManageBlock?, tapGifCellBlock: cableUi.MainGifTapCellBlock?, deleteHistoryBlock: cableUi.StickersDeleteHistoryBlock?, stickersLongPressBlock: cableUi.StickersLongPressBlock?, gifLongPressBlock: cableUi.GifLongPressBlock?)
+  public func configView()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension MainStickersView : UIKit.UIScrollViewDelegate {
+  @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+}
+extension MainStickersView : UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegate {
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class CircleProgressView : UIKit.UIView {
+  public var clickCallBack: (() -> Swift.Void)?
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc public func clickHandler()
+  public func setBackgroundImage(img: UIKit.UIImage)
+  public func setProgress(progress: CoreGraphics.CGFloat)
+  public func degressToRadians(degress: Swift.Double) -> Swift.Double
+  public func startAnimation()
+  public func stopAnimation()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class CUIBaseViewController : UIKit.UIViewController, UIKit.UIGestureRecognizerDelegate, UIKit.UINavigationControllerDelegate {
+  public var stopSlideBack: Swift.Bool
+  public var isNoHandleingNavigation: Swift.Bool
+  public var backPandGesture: UIKit.UIPanGestureRecognizer?
+  public var isNeedDissMissBackGroundTap: Swift.Bool? {
+    get
+    set
+  }
+  public var isNeedDissMissPanGesture: Swift.Bool? {
+    get
+    set
+  }
+  @objc override dynamic open func viewDidLoad()
+  @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  public func showLoading()
+  public func dismissLoading()
+  public func showLoadingInWindow()
+  public func dismissLoadingInWindow()
+  public func showToast(msg: Swift.String, delay: Swift.Double? = 1)
+  public class func showLoading(toView: UIKit.UIView)
+  public class func dismissLoading(toView: UIKit.UIView)
+  public class func ShowToast(msg: Swift.String, delay: Swift.Double? = 1)
+  @objc override dynamic open func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUIBaseViewController {
+  @objc dynamic open func onBack()
+  @objc dynamic open func dismissInputView(_ tap: UIKit.UITapGestureRecognizer)
+  @objc dynamic open func refreshByLanguageChange()
+}
+extension CUIBaseViewController {
+  public func hideNavBarLineView()
+  public func showNaviBarLineView()
+}
+extension CUIBaseViewController {
+  @objc dynamic open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  public func removeNavigationController(withVCNames vcNames: [Swift.String])
+}
+extension CUIMData {
+  public func getAllSession() -> [iMApi.CUSession]
+  public func replaceSessions(sessions: [iMApi.CUSession])
+  public func addSession(sessions: [iMApi.CUSession])
+  public func updateSession(session: iMApi.CUSession)
+  public func updateSessionIfExist(session: iMApi.CUSession)
+  public func getSessionType(chatId: Swift.String) -> Swift.Int?
+  public func getSession(chatId: Swift.String, handler: ((iMApi.CUSession?) -> ()))
+  public func getSession(chatId: Swift.String) -> iMApi.CUSession?
+  public func getGroupSession(handler: (([iMApi.CUSession]) -> ()))
+  public func getMemberInfo(chatId: Swift.String, uid: Swift.String) -> iMApi.CURole?
+  public func deleteSession(chatId: Swift.String)
+  public func checkIsGroupChat(chatId: Swift.String) -> Swift.Bool
+}
+extension MJRefreshStateHeader {
+  public func internationalization()
+}
+extension MJRefreshBackStateFooter {
+  public func internationalization()
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class IMSendingView : UIKit.UIView {
+  public func setWhiteType()
+  public func startAnimation()
+  public func pauseAnimation()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class IMLinkTextInfo : ObjectiveC.NSObject {
+  public var uid: Swift.String
+  public var nickName: Swift.String
+  public var linkText: Swift.String
+  public var action: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum Language : Swift.String {
+  case zh_Hans
+  case en
+  case km_KH
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class CUIBlackListViewController : cableUi.CUIBaseViewController {
+  public class func instanceBlacklistVC() -> cableUi.CUIBlackListViewController
+  public var friendList: [iMApi.CUFriendInfo]
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func refreshByLanguageChange()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUIBlackListViewController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
+  @objc dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreGraphics.CGFloat
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForFooterInSection section: Swift.Int) -> CoreGraphics.CGFloat
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+extension CUIBlackListViewController {
+  @objc dynamic public func performSelctModel(_ model: Any)
+}
+public protocol LBXScanViewControllerDelegate : ObjectiveC.NSObjectProtocol {
+  func scanFinished(scanResult: cableUi.LBXScanResult, error: Swift.String?)
+}
+public protocol QRRectDelegate : ObjectiveC.NSObjectProtocol {
+  func drawwed()
+}
+@objc @_inheritsConvenienceInitializers open class LBXScanViewController : UIKit.UIViewController, UIKit.UIImagePickerControllerDelegate, UIKit.UINavigationControllerDelegate {
+  weak open var scanResultDelegate: cableUi.LBXScanViewControllerDelegate?
+  weak open var delegate: cableUi.QRRectDelegate?
+  open var scanObj: cableUi.LBXScanWrapper?
+  open var scanStyle: cableUi.LBXScanViewStyle?
+  open var qRScanView: cableUi.LBXScanView?
+  open var isOpenInterestRect: Swift.Bool
+  public var arrayCodeType: [AVFoundation.AVMetadataObject.ObjectType]?
+  public var isNeedCodeImage: Swift.Bool
+  public var readyString: Swift.String!
+  @objc override dynamic open func viewDidLoad()
+  open func setNeedCodeImage(needCodeImg: Swift.Bool)
+  open func setOpenInterestRect(isOpen: Swift.Bool)
+  @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic open var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @objc get
+  }
+  @objc open func startScan()
+  open func drawScanView()
+  open func handleCodeResult(arrayResult: [cableUi.LBXScanResult])
+  @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  open func openPhotoAlbum()
+  public func imagePickerController(_ picker: UIKit.UIImagePickerController, didFinishPickingMediaWithInfo info: [Swift.String : Any])
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+@objc @_inheritsConvenienceInitializers public class BeePopoverAction : ObjectiveC.NSObject {
+  public class func action(title: Swift.String, handler: @escaping (() -> ())) -> cableUi.BeePopoverAction
+  public class func action(image: UIKit.UIImage?, title: Swift.String, handler: @escaping (() -> ())) -> cableUi.BeePopoverAction
+  public class func action(view: UIKit.UIView, handler: @escaping (() -> ())) -> cableUi.BeePopoverAction
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ZYPhotoPreviewDeleteViewController : cableUi.ZYBaseViewController, UIKit.UICollectionViewDelegate, UIKit.UICollectionViewDataSource {
+  public var currentIndex: Swift.Int
+  public var previewPhotoArray: [cableUi.PhotoModel]
+  public var isAllowDelete: Swift.Bool
+  public var deleteClicked: (([cableUi.PhotoModel], Swift.Int) -> Swift.Void)? {
+    get
+    set
+  }
+  @objc deinit
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func didMove(toParent parent: UIKit.UIViewController?)
+  @objc public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc public func collectionView(_ collectionView: UIKit.UICollectionView, didEndDisplaying cell: UIKit.UICollectionViewCell, forItemAt indexPath: Foundation.IndexPath)
+  @objc public func scrollViewWillBeginDragging(_ scrollView: UIKit.UIScrollView)
+  @objc public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+@objc @_inheritsConvenienceInitializers public class CUISearchGIFCell : UIKit.UICollectionViewCell {
+  @objc override dynamic public func awakeFromNib()
+  public func updateGifView(model: iMApi.CUGifStickerItem)
+  public func updateStickView(model: iMApi.CUStickerItem)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct LBXScanResult {
+  public var strScanned: Swift.String?
+  public var imgScanned: UIKit.UIImage?
+  public var strBarCodeType: Swift.String?
+  public var arrayCorner: [Swift.AnyObject]?
+  public init(str: Swift.String?, img: UIKit.UIImage?, barCodeType: Swift.String?, corner: [Swift.AnyObject]?)
+}
+@objc @_hasMissingDesignatedInitializers open class LBXScanWrapper : ObjectiveC.NSObject, AVFoundation.AVCaptureMetadataOutputObjectsDelegate {
+  @objc public func metadataOutput(_ output: AVFoundation.AVCaptureMetadataOutput, didOutput metadataObjects: [AVFoundation.AVMetadataObject], from connection: AVFoundation.AVCaptureConnection)
+  open func captureOutput(_ captureOutput: AVFoundation.AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVFoundation.AVCaptureConnection!)
+  open func captureImage()
+  open func connectionWithMediaType(mediaType: AVFoundation.AVMediaType, connections: [Swift.AnyObject]) -> AVFoundation.AVCaptureConnection?
+  open func changeScanRect(cropRect: CoreGraphics.CGRect)
+  open func changeScanType(objType: [AVFoundation.AVMetadataObject.ObjectType])
+  open func isGetFlash() -> Swift.Bool
+  open func setTorch(torch: Swift.Bool)
+  open func changeTorch()
+  public static func recognizeQRImage(image: UIKit.UIImage) -> [cableUi.LBXScanResult]
+  public static func createCode(codeType: Swift.String, codeString: Swift.String, size: CoreGraphics.CGSize, qrColor: UIKit.UIColor, bkColor: UIKit.UIColor) -> UIKit.UIImage?
+  public static func createCode128(codeString: Swift.String, size: CoreGraphics.CGSize, qrColor: UIKit.UIColor, bkColor: UIKit.UIColor) -> UIKit.UIImage?
+  public static func getConcreteCodeImage(srcCodeImage: UIKit.UIImage, rect: CoreGraphics.CGRect) -> UIKit.UIImage?
+  public static func getConcreteCodeRectFromImage(srcCodeImage: UIKit.UIImage, codeResult: cableUi.LBXScanResult) -> CoreGraphics.CGRect
+  public static func addImageLogo(srcImg: UIKit.UIImage, logoImg: UIKit.UIImage, logoSize: CoreGraphics.CGSize) -> UIKit.UIImage
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_inheritsConvenienceInitializers public class LocationInfo : ObjectiveC.NSObject {
+  public var name: Swift.String?
+  public var coordinate: CoreLocation.CLLocationCoordinate2D?
+  public var adress: Swift.String?
+  public var zoomLevel: Swift.Float
+  public var photoUrl: Swift.String?
+  public var isSelected: Swift.Bool
+  public func getPhotoUrl()
+  public class func getLocationUrl(lat: Swift.Double, lng: Swift.Double) -> Swift.String
+  public class func parseToArray(dict: Swift.Dictionary<Swift.String, Any>?) -> Swift.Array<cableUi.LocationInfo>?
+  public class func appleMapParseToList(list: Swift.Array<MapKit.MKMapItem>) -> Swift.Array<cableUi.LocationInfo>
+  @objc override dynamic public init()
+  @objc deinit
+}
+public typealias GifScrollCompleteBlock = () -> Swift.Void
+public typealias GifStickersTapCellBlock = (iMApi.CUGifStickerItem) -> Swift.Void
+public typealias GifSearchTapBlock = () -> Swift.Void
+public typealias GifConfigSizeBlock = (CoreGraphics.CGFloat, CoreGraphics.CGFloat) -> Swift.Void
+@objc @_inheritsConvenienceInitializers public class StickersGifCollectionView : UIKit.UIView {
+  public class func instance() -> cableUi.StickersGifCollectionView
+  public func configView(tapBlock: cableUi.GifStickersTapCellBlock?, seachBlock: cableUi.GifSearchTapBlock?, configSizeBlock: cableUi.GifConfigSizeBlock?, scrollCompleteBlock: cableUi.GifScrollCompleteBlock?, gifLongPressBlock: cableUi.GifLongPressBlock?)
+  public func onColletionViewLoadData(up: Swift.Bool)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension StickersGifCollectionView : UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegate, UIKit.UICollectionViewDelegateFlowLayout {
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+  @objc dynamic public func scrollViewWillBeginDragging(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewDidEndDecelerating(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewDidEndDragging(_ scrollView: UIKit.UIScrollView, willDecelerate decelerate: Swift.Bool)
+}
+@objc @_inheritsConvenienceInitializers public class CUIScanerViewController : cableUi.LBXScanViewController, UIKit.UIGestureRecognizerDelegate {
+  public class func instanceScanViewController() -> cableUi.CUIScanerViewController
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc deinit
+  override public func handleCodeResult(arrayResult: [cableUi.LBXScanResult])
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension CUIScanerViewController {
+  @objc dynamic public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+public enum PhotoMedieType {
+  case image
+  case gif
+  case video
+  public static func == (a: cableUi.PhotoMedieType, b: cableUi.PhotoMedieType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class PhotoModel : ObjectiveC.NSObject {
+  public var asset: Photos.PHAsset
+  public var thumbnailImage: UIKit.UIImage?
+  public var originImage: UIKit.UIImage?
+  public var imageURL: Swift.String?
+  public var gifData: Foundation.Data?
+  public var videoURL: Foundation.URL?
+  public var urlAsset: AVFoundation.AVURLAsset?
+  public var isGif: Swift.Bool
+  public var isEdited: Swift.Bool
+  public var medieType: cableUi.PhotoMedieType
+  public var fileName: Swift.String?
+  @objc convenience override dynamic public init()
+  public init(thumbnailImage: UIKit.UIImage?, originImage: UIKit.UIImage?, imageURL: Swift.String?)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class AVGroupSelectController : cableUi.CUIBaseViewController {
+  public class func instance() -> cableUi.AVGroupSelectController
+  @objc override dynamic public func viewDidLoad()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension AVGroupSelectController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
+  @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreGraphics.CGFloat
+  @objc dynamic public func sectionIndexTitles(for tableView: UIKit.UITableView) -> [Swift.String]?
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, sectionForSectionIndexTitle title: Swift.String, at index: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+extension AVGroupSelectController : UIKit.UICollectionViewDelegate, UIKit.UICollectionViewDataSource {
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+extension AVGroupSelectController : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @objc dynamic public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+}
+public enum BMSelectUsersType {
+  case CreateGroupChat
+  case InviteNewMember
+  public static func == (a: cableUi.BMSelectUsersType, b: cableUi.BMSelectUsersType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class CUIGroupSelectUsersViewController : cableUi.CUIBaseViewController {
+  public class func instanceBMGroupChatSelectUsersViewController(selectType: cableUi.BMSelectUsersType) -> cableUi.CUIGroupSelectUsersViewController
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUIGroupSelectUsersViewController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
+  @objc dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreGraphics.CGFloat
+  @objc dynamic public func sectionIndexTitles(for tableView: UIKit.UITableView) -> [Swift.String]?
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, sectionForSectionIndexTitle title: Swift.String, at index: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @objc dynamic public func scrollViewWillBeginDecelerating(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+}
+extension CUIGroupSelectUsersViewController : UIKit.UICollectionViewDelegate, UIKit.UICollectionViewDataSource {
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+extension CUIGroupSelectUsersViewController : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @objc dynamic public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+}
+extension UIButton {
+  @objc override dynamic open func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers public class ZYCachingImageManager : Photos.PHCachingImageManager {
+  @objc override dynamic public class func `default`() -> cableUi.ZYCachingImageManager
+  public func requestGifData(for asset: Photos.PHAsset, progressHandler: Photos.PHAssetImageProgressHandler?, resultHandler: @escaping (Foundation.Data?, [Swift.AnyHashable : Any]?) -> Swift.Void) -> Photos.PHImageRequestID
+  public func requestThumbnailImage(for asset: Photos.PHAsset, resultHandler: @escaping (UIKit.UIImage?, [Swift.AnyHashable : Any]?) -> Swift.Void) -> Photos.PHImageRequestID
+  public func requestPreviewImage(for asset: Photos.PHAsset, progressHandler: Photos.PHAssetImageProgressHandler?, resultHandler: @escaping (UIKit.UIImage?, [Swift.AnyHashable : Any]?) -> Swift.Void) -> Photos.PHImageRequestID
+  public func requestOriginImage(for asset: Photos.PHAsset, progressHandler: Photos.PHAssetImageProgressHandler?, resultHandler: @escaping (UIKit.UIImage?, [Swift.AnyHashable : Any]?) -> Swift.Void) -> Photos.PHImageRequestID
+  public func requestVideoPlayerItem(for asset: Photos.PHAsset, progressHandler: Photos.PHAssetImageProgressHandler?, resultHandler: @escaping (AVFoundation.AVPlayerItem?, [Swift.AnyHashable : Any]?) -> Swift.Void) -> Photos.PHImageRequestID
+  public func requestVideoAVURLAsset(for asset: Photos.PHAsset, progressHandler: Photos.PHAssetImageProgressHandler?, resultHandler: @escaping (AVFoundation.AVURLAsset?, [Swift.AnyHashable : Any]?) -> Swift.Void) -> Photos.PHImageRequestID
+  public func getThumbnailAndPreviewImage(originImage: UIKit.UIImage) -> (thumbnailImage: UIKit.UIImage?, previewImage: UIKit.UIImage?)
+  public func removeAllCache()
+  @objc override dynamic public init()
+  @objc deinit
+}
+public typealias loadAction = () -> (Swift.Void)
+public typealias CUISearchImgSelectBlock = (iMApi.CUStickerItem) -> Swift.Void
+public typealias CUISearchGifSelectBlock = (iMApi.CUGifStickerItem) -> Swift.Void
+@objc @_inheritsConvenienceInitializers public class CUISearchGIFImageView : UIKit.UIView {
+  public class func CreateView() -> cableUi.CUISearchGIFImageView
+  public func onValueChange(_ value: Swift.String)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUISearchGIFImageView : UIKit.UICollectionViewDelegateFlowLayout, UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegate {
+  public func onColletionViewLoadData(up: Swift.Bool)
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+public enum LBXScanViewAnimationStyle {
+  case LineMove
+  case NetGrid
+  case LineStill
+  case None
+  public static func == (a: cableUi.LBXScanViewAnimationStyle, b: cableUi.LBXScanViewAnimationStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum LBXScanViewPhotoframeAngleStyle {
+  case Inner
+  case Outer
+  case On
+  public static func == (a: cableUi.LBXScanViewPhotoframeAngleStyle, b: cableUi.LBXScanViewPhotoframeAngleStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct LBXScanViewStyle {
+  public var isNeedShowRetangle: Swift.Bool
+  public var whRatio: CoreGraphics.CGFloat
+  public var centerUpOffset: CoreGraphics.CGFloat
+  public var xScanRetangleOffset: CoreGraphics.CGFloat
+  public var colorRetangleLine: UIKit.UIColor
+  public var photoframeAngleStyle: cableUi.LBXScanViewPhotoframeAngleStyle
+  public var colorAngle: UIKit.UIColor
+  public var photoframeAngleW: CoreGraphics.CGFloat
+  public var photoframeAngleH: CoreGraphics.CGFloat
+  public var photoframeLineW: CoreGraphics.CGFloat
+  public var anmiationStyle: cableUi.LBXScanViewAnimationStyle
+  public var animationImage: UIKit.UIImage?
+  public var color_NotRecoginitonArea: UIKit.UIColor
+  public init()
+}
+@objc @_inheritsConvenienceInitializers public class IMHotPicInfo : ObjectiveC.NSObject {
+  public var src: cableUi.IMGifInfo?
+  public var thumb: cableUi.IMGifInfo?
+  public class func parseToObject(dict: Swift.Dictionary<Swift.String, Any>?) -> Swift.Array<cableUi.IMHotPicInfo>?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class IMGifInfo : ObjectiveC.NSObject {
+  public var url: Swift.String
+  public var name: Swift.String
+  public var realname: Swift.String
+  public var width: Swift.Float
+  public var height: Swift.Float
+  public var size: Swift.Int64
+  public class func parseToObject(dict: Swift.Dictionary<Swift.String, Any>?) -> cableUi.IMGifInfo?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension CUISeeionsListViewController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource, UIKit.UIScrollViewDelegate {
+  public func loadConversationData()
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @objc dynamic public func scrollViewWillBeginDragging(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewWillBeginDecelerating(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+}
+@objc @_inheritsConvenienceInitializers public class StickersStaticCell : UIKit.UICollectionViewCell {
+  @objc override dynamic public func awakeFromNib()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class CUIFriendInfoViewController : cableUi.CUIBaseViewController {
+  public var userInfo: iMApi.CUFriendInfo?
+  public var isFromChat: Swift.Bool
+  public var blackFriendCallBack: ((Swift.Bool, Swift.String) -> ())?
+  public var agreeFriendCallBack: ((Swift.String) -> ())?
+  public class func instanceUserDetailsViewController() -> cableUi.CUIFriendInfoViewController
+  @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @objc get
+  }
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func refreshByLanguageChange()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension String {
+  public func getWidth(font: CoreGraphics.CGFloat, height: CoreGraphics.CGFloat = 10000) -> CoreGraphics.CGFloat
+  public func getHeight(font: CoreGraphics.CGFloat, width: CoreGraphics.CGFloat = 10000) -> CoreGraphics.CGFloat
+  public func getSize(font: CoreGraphics.CGFloat, size: CoreGraphics.CGSize) -> CoreGraphics.CGSize
+  public func moneyStringFamat(number: Swift.String?, isZeroHaveTwoDigits: Swift.Bool = true) -> Swift.String
+  public func showInComma(number: Swift.String?, isZeroHaveTwoDigits: Swift.Bool = true) -> Swift.String
+  public func moneyAttributeStringFarmat(number: Swift.String?, floatSize: CoreGraphics.CGFloat) -> Foundation.NSMutableAttributedString
+  public func isOnlyhasNumberAndpointWithString() -> Swift.Bool
+  public func filterTheComma() -> Swift.String
+  public func filterTheLastPoint() -> Swift.String
+  public func filterTheEmpty() -> Swift.String
+  public func replaceEmptyStr() -> Swift.String
+}
+extension String {
+  public func width(withFont font: UIKit.UIFont?, constrainedToHeight height: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+}
+extension String {
+  public func formatToBankNum_4num() -> Swift.String
+}
+extension String {
+  public func disableEmoji() -> Swift.String
+}
+extension String {
+  public func getFirstLetter() -> Swift.String
+  public func polyphoneStringHandle(nameString: Swift.String, pinyinString: Swift.String) -> Swift.String
+}
+@objc @_inheritsConvenienceInitializers public class CUIFriendRequestViewController : cableUi.CUIBaseViewController {
+  public class func instanceFriendRequestViewController() -> cableUi.CUIFriendRequestViewController
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension CUIFriendRequestViewController : UIKit.UITableViewDataSource, UIKit.UITableViewDelegate {
+  public func onTableViewLoadData(page: Swift.Int)
+  @objc dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, titleForHeaderInSection section: Swift.Int) -> Swift.String?
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForFooterInSection section: Swift.Int) -> CoreGraphics.CGFloat
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreGraphics.CGFloat
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+extension CUIFriendRequestViewController : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+}
+public protocol AudioPlayerPolicyHandler {
+  func onVoicePlayStateChange(messageInfo: cableUi.BMMessageInfo)
+  func onVoicePlayFinish(messageInfo: cableUi.BMMessageInfo)
+}
+public typealias AudioSessionModeChange = (AVFAudio.AVAudioSession.Mode) -> Swift.Void
+@objc @_inheritsConvenienceInitializers public class CUIGlobalAudioPlayer : ObjectiveC.NSObject {
+  public class func getInstance() -> cableUi.CUIGlobalAudioPlayer
+  public var audioSessionModeChange: cableUi.AudioSessionModeChange?
+  @objc override dynamic public init()
+  public func addHandler(handler: cableUi.AudioPlayerPolicyHandler)
+  @objc deinit
+}
+extension CUIGlobalAudioPlayer {
+  public func isPlaying() -> Swift.Bool
+  @objc dynamic public func changePlayType()
+  public func play(info: cableUi.BMMessageInfo, progress: CoreGraphics.CGFloat = 0, scroll: Swift.Bool = false)
+  public func getPlayProgress() -> Swift.Float?
+  public func stopPlay()
+  public func shakeWhenMessageArived()
+}
+extension CUIGlobalAudioPlayer : AVFAudio.AVAudioPlayerDelegate {
+  @objc dynamic public func audioPlayerDidFinishPlaying(_ player: AVFAudio.AVAudioPlayer, successfully flag: Swift.Bool)
+}
+extension CUIIMViewController {
+  public func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers public class CUISeeionsListViewController : cableUi.CUIBaseViewController {
+  public class func CreateViewController() -> cableUi.CUISeeionsListViewController
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc deinit
+  @objc override dynamic public func didReceiveMemoryWarning()
+  @objc override dynamic public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension CUISeeionsListViewController {
+  public func sessionListSort()
+  @objc override dynamic public func refreshByLanguageChange()
+}
+@objc @_inheritsConvenienceInitializers public class SystemOutsideUtil : ObjectiveC.NSObject {
+  public var notAllow: Swift.Bool
+  public class func callPhone(phone: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum AlertShowType {
+  case AlertShowByPresent
+  case AlertShowByCenter
+  case AlertShowByPush
+  case AlertNotAnimationCenter
+  public static func == (a: cableUi.AlertShowType, b: cableUi.AlertShowType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class LPAlertViewTool : ObjectiveC.NSObject {
+  public static let tool: cableUi.LPAlertViewTool
+  public static func getInstance() -> cableUi.LPAlertViewTool
+  public var heightRate: CoreGraphics.CGFloat
+  public var custY: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  public var maskAlpha: CoreGraphics.CGFloat
+  public var isNeedMaskClick: Swift.Bool
+  public var isNeedDismiss: Swift.Bool
+  public var mask: UIKit.UIButton?
+  public var durationTime: Swift.Double
+  public func setAlertView(alertView: UIKit.UIView, alertShowType: cableUi.AlertShowType)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension LPAlertViewTool {
+  public func show()
+  @objc dynamic public func dismiss()
+  public func forceDismiss()
+}
+extension LPAlertViewTool {
+  public func isHidden(flag: Swift.Bool)
+}
+@objc public protocol ZYPhotoAlbumProtocol : ObjectiveC.NSObjectProtocol {
+  @available(iOS 8.0, iOS 8.0, *)
+  @objc optional func photoAlbum(selectPhotos: [cableUi.PhotoModel], isSelectOriginImage: Swift.Bool)
+  @available(iOS 8.0, *)
+  @objc optional func photoAlbum(clipPhoto: UIKit.UIImage?)
+}
+public enum ZYPhotoAlbumType {
+  case selectPhoto, clipPhoto
+  public static func == (a: cableUi.ZYPhotoAlbumType, b: cableUi.ZYPhotoAlbumType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers public class ZYPhotoNavigationViewController : UIKit.UINavigationController {
+  public var maxSelectCount: Swift.Int {
+    get
+    set
+  }
+  public var clipBounds: CoreGraphics.CGSize {
+    get
+    set
+  }
+  public init(photoAlbumDelegate: cableUi.ZYPhotoAlbumProtocol?, photoAlbumType: cableUi.ZYPhotoAlbumType)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override dynamic public func viewDidLoad()
+  @available(iOS 5.0, *)
+  @objc override dynamic public init(navigationBarClass: Swift.AnyClass?, toolbarClass: Swift.AnyClass?)
+  @objc override dynamic public init(rootViewController: UIKit.UIViewController)
+}
+public var ZYPhotoAlbumSkinColor: UIKit.UIColor {
+  get
+  set
+}
+@objc @_inheritsConvenienceInitializers public class ZYBaseViewController : UIKit.UIViewController {
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @objc get
+  }
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public typealias DidSelectBlock = (iMApi.CUSession?) -> Swift.Void
+public typealias ReceiveMessageBlock = (Swift.String, iMApi.CUMessage) -> Swift.Void
+public let LPBackgroundColor: UIKit.UIColor
+public let LPLineColor: UIKit.UIColor
+public let LPTextColor41: UIKit.UIColor
+public let LPTextColor102: UIKit.UIColor
+public let LPTextColor153: UIKit.UIColor
+public let LPTextColorOrange: UIKit.UIColor
+public let LPTextColorRed: UIKit.UIColor
+public let LPTextColorBlue: UIKit.UIColor
+public let LPTextColorLightBlue: UIKit.UIColor
+public let LPTextColorLightYellow: UIKit.UIColor
+public let LPBorderColor: UIKit.UIColor
+public let LPNavBottomColor: UIKit.UIColor
+public let IS_IPHONEX: Swift.Bool!
+public let bottomSplitHeight: CoreGraphics.CGFloat
+public let PotatoClientId: Swift.String
+public let PotatoClientSecret: Swift.String
+public let GoogleAppKey: Swift.String
+public func RGBColor(_ r: CoreGraphics.CGFloat, _ g: CoreGraphics.CGFloat, _ b: CoreGraphics.CGFloat, _ a: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
+public func RGBColorFrom0x(_ color_vaule: Swift.Int, _ a: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
+public func colorWithHexString(Color_Value: Foundation.NSString, alpha: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
+public func IMLocalizedString(key: Swift.String, value: Swift.String = "") -> Swift.String
+extension IMuiApi {
+  public func setSessionClickEvent(_ block: @escaping cableUi.DidSelectBlock)
+  public func setOnReceiveMessageEvent(_ block: @escaping cableUi.ReceiveMessageBlock)
+  public func loadUserInfo(uid: Swift.String, handler: @escaping (iMApi.CUUserInfo?) -> Swift.Void)
+  public func loadSessionList(handler: @escaping ((iPush.PHResponse<[iMApi.CUSession]>) -> ()))
+}
+extension String {
+  public func urlEncoded() -> Swift.String
+}
+@objc @_inheritsConvenienceInitializers public class SPExpandAreaButton : UIKit.UIButton {
+  @objc override dynamic public func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension CUIMData {
+  public func addFriendInfo(friend: iMApi.CUFriendInfo)
+  public func replaceAllData(friends: [iMApi.CUFriendInfo])
+  public func deleteFriendInfo(uid: Swift.String)
+  public func getFriendInfo(uid: Swift.String) -> iMApi.CUFriendInfo?
+  public func updateFriendInfo(info: iMApi.CUFriendInfo) -> Swift.Bool
+}
+public protocol IMRecorderDelegate : ObjectiveC.NSObjectProtocol {
+  func volumeChange(volume: Swift.Double)
+  func failRecord(state: Swift.Int)
+  func onConvertBegin()
+  func onConvertSuccess(voiceData: Foundation.Data, fileName: Swift.String, path: Swift.String, recordTime: Swift.Double)
+  func onConvertFinish(wavFileName: Swift.String, amrFileName: Swift.String, recordTime: Swift.Double)
+  func onRecordTimeOut()
+}
+@objc public class CUIGlobalAudioRecorder : ObjectiveC.NSObject {
+  public var timer: Foundation.Timer?
+  public var isTimeOutStopRecord: Swift.Bool
+  weak public var delegate: cableUi.IMRecorderDelegate?
+  public init(delegate: cableUi.IMRecorderDelegate)
+  public func startRecord()
+  public func recordPermission() -> Swift.Bool
+  public func authorizeAVAudioRecordPermission(comletion: @escaping (Swift.Bool) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension CUIGlobalAudioRecorder {
+  public func startRecord(fileName: Swift.String?)
+  public func pauseRecord()
+  public func stopRecord()
+  public func isRecording() -> Swift.Bool
+  public func cancelRecord()
+}
+extension CUIGlobalAudioRecorder : AVFAudio.AVAudioRecorderDelegate {
+}
+extension CUIGlobalAudioRecorder {
+  public class func LoadWavDataFromFile(fileName: Swift.String) -> Foundation.Data?
+  public class func LoadAmrDataFromFile(fileName: Swift.String) -> Foundation.Data?
+  public static func CreateWavFile(fileName: Swift.String) -> Swift.String
+  public static func CreateAmrFile(fileName: Swift.String) -> Swift.String
+  public static func GetWavFilePath(fileName: Swift.String) -> Swift.String?
+  public static func GetAmrFilePath(fileName: Swift.String) -> Swift.String?
+}
+public let DOCUMENT_PATH: Swift.String
+public let MP4_CACHE_PATH: Swift.String
+extension UIImage {
+  public class func setBarCodeImage(barCodeStr: Swift.String, barCodeSize: CoreGraphics.CGSize) -> UIKit.UIImage
+  public class func setQRCodeImage(contentImage: UIKit.UIImage?, url: Swift.String, imageSize: CoreGraphics.CGSize, isNeedCircleAvator: Swift.Bool, contentImageSize: CoreGraphics.CGSize) -> UIKit.UIImage
+  public class func setupHighDefinitionUIImage(_ image: CoreImage.CIImage, size: CoreGraphics.CGSize) -> UIKit.UIImage
+  public class func getClearImage(sourceImage: UIKit.UIImage, center: UIKit.UIImage, imageSize: CoreGraphics.CGSize, isNeedCircleAvator: Swift.Bool, contentImageSize: CoreGraphics.CGSize) -> UIKit.UIImage
+  public class func createArcImage(image: UIKit.UIImage, changeSize: CoreGraphics.CGSize, boardColor: UIKit.UIColor) -> UIKit.UIImage
+  public class func groupIcon(wh: CoreGraphics.CGFloat, images: [UIKit.UIImage], bgColor: UIKit.UIColor?) -> UIKit.UIImage
+  public class func getRectsInGroupIcon(wh: CoreGraphics.CGFloat, count: Swift.Int) -> [CoreGraphics.CGRect]
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class VerifyCodeItem : UIKit.UIView {
+  public func setStyle(style: Swift.Int)
+  public func setCodeStr(str: Swift.String?)
+  @objc deinit
+}
+public typealias FnishCodePrintBlock = (Swift.String?) -> (Swift.Void)
+public enum VerifyCodeViewType {
+  case phoneVerifyCode
+  case mineSetPayCode
+  case alertSetPayCode
+  public static func == (a: cableUi.VerifyCodeViewType, b: cableUi.VerifyCodeViewType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class VerifyCodeView : UIKit.UIView {
+  public var verifyCodeViewType: cableUi.VerifyCodeViewType
+  public var NoNeedShowSystemKeyBoard: Swift.Bool
+  public var finishBlock: cableUi.FnishCodePrintBlock?
+  @objc override dynamic public func layoutSubviews()
+  @objc override dynamic public func didMoveToWindow()
+  public func setVerifyCodeViewType(type: cableUi.VerifyCodeViewType)
+  public func setCode(code: Swift.String?)
+  public func clearCode()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class LocationShowController : cableUi.CUIBaseViewController, MapKit.MKMapViewDelegate {
+  public var locationInfo: cableUi.LocationInfo?
+  public class func instance() -> cableUi.LocationShowController
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public typealias StickercCloseBlock = () -> Swift.Void
+@objc @_inheritsConvenienceInitializers public class StickerReusableHeader : UIKit.UICollectionReusableView {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension cableUi.CUIIMViewController : cableUi.EmptyDataSetProtocol {}
+extension cableUi.EmptyType : Swift.Equatable {}
+extension cableUi.EmptyType : Swift.Hashable {}
+extension cableUi.Language : Swift.Equatable {}
+extension cableUi.Language : Swift.Hashable {}
+extension cableUi.Language : Swift.RawRepresentable {}
+extension cableUi.PhotoMedieType : Swift.Equatable {}
+extension cableUi.PhotoMedieType : Swift.Hashable {}
+extension cableUi.BMSelectUsersType : Swift.Equatable {}
+extension cableUi.BMSelectUsersType : Swift.Hashable {}
+extension cableUi.LBXScanViewAnimationStyle : Swift.Equatable {}
+extension cableUi.LBXScanViewAnimationStyle : Swift.Hashable {}
+extension cableUi.LBXScanViewPhotoframeAngleStyle : Swift.Equatable {}
+extension cableUi.LBXScanViewPhotoframeAngleStyle : Swift.Hashable {}
+extension cableUi.CUIFriendRequestViewController : cableUi.EmptyDataSetProtocol {}
+extension cableUi.AlertShowType : Swift.Equatable {}
+extension cableUi.AlertShowType : Swift.Hashable {}
+extension cableUi.ZYPhotoAlbumType : Swift.Equatable {}
+extension cableUi.ZYPhotoAlbumType : Swift.Hashable {}
+extension cableUi.VerifyCodeViewType : Swift.Equatable {}
+extension cableUi.VerifyCodeViewType : Swift.Hashable {}
